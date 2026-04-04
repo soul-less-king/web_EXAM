@@ -45,15 +45,22 @@
 ### const vs let
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "change to account name variable" with your variable name (e.g. accountName, productName)
+// - Replace "change to tax rate variable" with your rate variable name (e.g. taxRate, discountRate)
+// - Replace "change to isActive variable" with your boolean variable name (e.g. isActive, isLoggedIn)
+// - Replace "change to balance variable" with your changing variable name (e.g. balance, counter, total)
+// - Replace the assigned values ("Main Checking", 0.05, true, 15250) with your own starting values
+
 // const — cannot be reassigned (like Java's final)
-const "change to account name variable" = "Main Checking";
-const "change to tax rate variable" = 0.05;
-const "change to isActive variable" = true;
+const accountName = "Main Checking";   // ← replace "accountName" and "Main Checking"
+const taxRate     = 0.05;              // ← replace "taxRate" and 0.05
+const isActive    = true;              // ← replace "isActive" and true
 
 // let — can be reassigned
-let "change to balance variable" = 15250;
-"change to balance variable" = "change to balance variable" + 1000;
-"change to balance variable" += 500;  // shorthand
+let balance = 15250;                   // ← replace "balance" and 15250
+balance = balance + 1000;
+balance += 500;  // shorthand
 
 // ERROR: const accountName = "Savings";  ← cannot reassign a const
 ```
@@ -63,68 +70,89 @@ let "change to balance variable" = 15250;
 ### Objects (Key-Value Pairs)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "myObject" with your object variable name (e.g. transaction, product, student)
+// - Replace property names (description, amount, category, type) with your actual property names
+// - Replace property values ("Grocery Shopping", 850, "Food", "expense") with your data
+// - Replace "myField" with the variable holding the key name you want to look up
+
 // No class definition needed — just curly braces
-const "change to transaction object" = {
-    "change to description property": "Grocery Shopping",
-    "change to amount property": 850,
-    "change to category property": "Food",
-    "change to type property": "expense"
+const myObject = {
+    description: "Grocery Shopping",   // ← replace key name and value
+    amount:       850,                  // ← replace key name and value
+    category:    "Food",               // ← replace key name and value
+    type:        "expense"             // ← replace key name and value
 };
 
 // Access with dot notation
-console.log("change to transaction object"."change to description property");  // "Grocery Shopping"
-console.log("change to transaction object"."change to amount property");       // 850
+console.log(myObject.description);     // "Grocery Shopping"
+console.log(myObject.amount);          // 850
 
 // Access with bracket notation (when key is a variable)
-const "change to field variable" = "change to amount property";
-console.log("change to transaction object"["change to field variable"]);       // 850
+const myField = "amount";             // ← replace "amount" with the key you want
+console.log(myObject[myField]);        // 850
 ```
 
 ### Template Literals
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "appName" with your string variable name (e.g. appName, title, label)
+// - Replace "greeting" with your greeting variable name
+// - Replace "receipt" with your multi-line string variable name
+// - Replace "formattedLine" with your formatted string variable name
+// - Replace myObject.description / myObject.amount etc. with your actual object.property pairs
+
 // Like Python f-strings — use backticks `` and ${}
-const "change to name variable" = "MyFinance";
-const "change to greeting variable" = `Welcome to ${"change to name variable"}`;
+const appName  = "MyFinance";                           // ← replace variable name and string value
+const greeting = `Welcome to ${appName}`;              // ← replace variable name
 
 // Multi-line receipt (Lab 5 Module 1 Exercise 3b)
-const "change to receipt variable" = `
-Transaction: ${"change to transaction object"."change to description property"}
-Amount:      ${"change to transaction object"."change to amount property"} QAR
-Category:    ${"change to transaction object"."change to category property"}
-Type:        ${"change to transaction object"."change to type property"}
+const receipt = `
+Transaction: ${myObject.description}
+Amount:      ${myObject.amount} QAR
+Category:    ${myObject.category}
+Type:        ${myObject.type}
 `;
 
 // Formatted string (Lab 5 Module 1 Exercise 3a)
-const "change to formatted variable" = `${"change to transaction object"."change to description property"}: ${"change to transaction object"."change to amount property"} QAR (${"change to transaction object"."change to type property"})`;
+const formattedLine = `${myObject.description}: ${myObject.amount} QAR (${myObject.type})`;
 ```
 
 ### Practice Exercises (exact from Lab 5 Module 1)
 
 ```javascript
+// SETUP REQUIRED (Lab 5 Module 1 exact exercise answers):
+// - Replace accountName with your constant name; replace "Main Checking" with your value
+// - Replace balance with your let variable name; replace 15250 with your starting value
+// - Replace isActive with your boolean name; replace true with your value
+// - Replace myTransaction with your object name
+// - Replace description/amount/category/type with your property names and their values
+// - Replace line / fullReceipt with your string variable names
+
 // 1a.
-const "change to account name variable" = "Main Checking";
+const accountName = "Main Checking";   // ← replace both
 // 1b.
-let "change to balance variable" = 15250;
+let balance = 15250;                   // ← replace both
 // 1c.
-const "change to isActive variable" = true;
+const isActive = true;                 // ← replace both
 // 1d.
-console.log("change to account name variable", "change to balance variable", "change to isActive variable");
+console.log(accountName, balance, isActive);
 
 // 2a.
-const "change to transaction object" = { "change to description property": "Grocery Shopping", "change to amount property": 850, "change to category property": "Food", "change to type property": "expense" };
+const myTransaction = { description: "Grocery Shopping", amount: 850, category: "Food", type: "expense" };
 // 2b.
-console.log("change to transaction object");
+console.log(myTransaction);
 // 2c.
-console.log("change to transaction object"."change to description property", "change to transaction object"."change to amount property");
+console.log(myTransaction.description, myTransaction.amount);
 
 // 3a.
-const "change to line variable" = `${"change to transaction object"."change to description property"}: ${"change to transaction object"."change to amount property"} QAR (${"change to transaction object"."change to type property"})`;
+const line = `${myTransaction.description}: ${myTransaction.amount} QAR (${myTransaction.type})`;
 // 3b. (multi-line)
-const "change to fullReceipt variable" = `Transaction: ${"change to transaction object"."change to description property"}\nAmount: ${"change to transaction object"."change to amount property"} QAR\nCategory: ${"change to transaction object"."change to category property"}\nType: ${"change to transaction object"."change to type property"}`;
+const fullReceipt = `Transaction: ${myTransaction.description}\nAmount: ${myTransaction.amount} QAR\nCategory: ${myTransaction.category}\nType: ${myTransaction.type}`;
 // 3c.
-console.log("change to line variable");
-console.log("change to fullReceipt variable");
+console.log(line);
+console.log(fullReceipt);
 ```
 
 ---
@@ -136,62 +164,84 @@ console.log("change to fullReceipt variable");
 ### Function Declarations (Exercise 1)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace formatCurrency with your function name (exam may call it formatAmount, displayCurrency, etc.)
+// - Replace amount with your parameter name
+// - Replace calculateRemaining with your function name (exam may call it calcBalance, getRemaining, etc.)
+// - Replace income / expenses with your parameter names
+// - Replace " QAR" with your currency string if different (e.g. " USD", "$", "")
+
 // Multi-line, named, hoisted (can call before definition)
-function "change to format currency function name"("change to amount parameter") {
-    return "change to amount parameter".toLocaleString() + " QAR";
+function formatCurrency(amount) {                        // ← replace function name and param
+    return amount.toLocaleString() + " QAR";            // ← replace " QAR" if needed
 }
 
-function "change to calculate remaining function name"("change to income parameter", "change to expenses parameter") {
-    return "change to income parameter" - "change to expenses parameter";
+function calculateRemaining(income, expenses) {          // ← replace function name and params
+    return income - expenses;
 }
 
 // Tests (from lab)
-console.log("change to format currency function name"(15250));           // "15,250 QAR"
-console.log("change to calculate remaining function name"(12000, 8500)); // 3500
+console.log(formatCurrency(15250));           // "15,250 QAR"
+console.log(calculateRemaining(12000, 8500)); // 3500
 ```
 
 ### Arrow Functions (Exercise 2)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace formatCurrency with your arrow function name (e.g. formatAmount, formatCurrencyArrow)
+// - Replace amount with your parameter name
+// - Replace calcSavingsRate with your function name (exam uses calcSavingsRate or calculateSavingsRate)
+// - Replace income / expenses with your parameter names
+// - Replace savings / rate with your internal variable names
+// - Replace " QAR" if your currency is different
+
 // One-liner — implicit return, no braces needed
-const "change to format currency function name" = ("change to amount parameter") => "change to amount parameter".toLocaleString() + " QAR";
+const formatCurrency = (amount) => amount.toLocaleString() + " QAR"; // ← replace name, param, " QAR"
 
 // Multi-line — explicit return required
-const "change to calculate savings rate function name" = ("change to income parameter", "change to expenses parameter") => {
-    const "change to savings variable" = "change to income parameter" - "change to expenses parameter";
-    const "change to rate variable" = ("change to savings variable" / "change to income parameter") * 100;
-    return "change to rate variable".toFixed(1);  // "29.2"
+const calcSavingsRate = (income, expenses) => {           // ← replace name and params
+    const savings = income - expenses;                    // ← replace "savings"
+    const rate    = (savings / income) * 100;             // ← replace "rate"
+    return rate.toFixed(1);                               // "29.2"
 };
 
 // Safe version — handle income === 0
-const "change to calculate savings rate safe function name" = ("change to income parameter", "change to expenses parameter") => {
-    if ("change to income parameter" === 0) return "0.0";
-    return ((("change to income parameter" - "change to expenses parameter") / "change to income parameter") * 100).toFixed(1);
+const calcSavingsRateSafe = (income, expenses) => {       // ← replace name
+    if (income === 0) return "0.0";
+    return (((income - expenses) / income) * 100).toFixed(1);
 };
 
 // Test:
-console.log("change to calculate savings rate function name"(12000, 8500));  // "29.2"
+console.log(calcSavingsRate(12000, 8500));  // "29.2"
 ```
 
 ### Processing an Array of Numbers (Exercise 3)
 
 ```javascript
-const monthlyExpenses = [4500, 1200, 650, 320, 750, 380];
-const income = 12000;
+// SETUP REQUIRED:
+// - Replace monthlyExpenses with your array name (e.g. expenses, amounts, prices)
+// - Replace income with your income variable name
+// - Replace calculateTotal with your function name
+// - Replace totalExpenses / balance / rate with your variable names
+// - Replace calcSavingsRate with the name you defined in Exercise 2
+
+const monthlyExpenses = [4500, 1200, 650, 320, 750, 380]; // ← replace array name and values
+const income = 12000;                                      // ← replace variable name and value
 
 // 3a. Write a function calculateTotal(items) that returns the sum of all items
-function calculateTotal(items) {
+function calculateTotal(items) {                           // ← replace function name
     return items.reduce((sum, item) => sum + item, 0);
 }
 
 // 3b. Total expenses
-const totalExpenses = calculateTotal(monthlyExpenses); // 7800
+const totalExpenses = calculateTotal(monthlyExpenses);     // 7800  ← replace variable names
 
 // 3c. Remaining balance
-const balance = income - totalExpenses;                // 4200
+const balance = income - totalExpenses;                    // 4200  ← replace variable names
 
 // 3d. Savings rate
-const rate = calcSavingsRate(income, totalExpenses);   // "35.0"
+const rate = calcSavingsRate(income, totalExpenses);       // "35.0" ← use your savings rate function name
 ```
 
 ### Key Differences: Declaration vs Arrow
@@ -212,94 +262,127 @@ const rate = calcSavingsRate(income, totalExpenses);   // "35.0"
 ### Standard Sample Data (used across ALL labs)
 
 ```javascript
-const "change to array name" = [
-    { "change to description property": "Salary",        "change to amount property": 12000, "change to type property": "income",  "change to category property": "Income" },
-    { "change to description property": "Rent",          "change to amount property": 4500,  "change to type property": "expense", "change to category property": "Housing" },
-    { "change to description property": "Groceries",     "change to amount property": 1200,  "change to type property": "expense", "change to category property": "Food" },
-    { "change to description property": "Bus Pass",      "change to amount property": 650,   "change to type property": "expense", "change to category property": "Transportation" },
-    { "change to description property": "Electric Bill", "change to amount property": 320,   "change to type property": "expense", "change to category property": "Utilities" },
-    { "change to description property": "Movie Tickets", "change to amount property": 150,   "change to type property": "expense", "change to category property": "Entertainment" },
-    { "change to description property": "Freelance Work","change to amount property": 3000,  "change to type property": "income",  "change to category property": "Income" },
-    { "change to description property": "Restaurant",    "change to amount property": 200,   "change to type property": "expense", "change to category property": "Food" },
-    { "change to description property": "Gas",           "change to amount property": 250,   "change to type property": "expense", "change to category property": "Transportation" },
-    { "change to description property": "New Shoes",     "change to amount property": 380,   "change to type property": "expense", "change to category property": "Shopping" }
+// SETUP REQUIRED:
+// - Replace transactions with your array name (e.g. transactions, items, products, recipes)
+// - Replace description / amount / type / category with your actual property names from the exam
+// - Keep the object structure — add or remove properties as needed for your exam
+
+const transactions = [  // ← replace "transactions" with your array name
+    { description: "Salary",        amount: 12000, type: "income",  category: "Income" },
+    { description: "Rent",          amount: 4500,  type: "expense", category: "Housing" },
+    { description: "Groceries",     amount: 1200,  type: "expense", category: "Food" },
+    { description: "Bus Pass",      amount: 650,   type: "expense", category: "Transportation" },
+    { description: "Electric Bill", amount: 320,   type: "expense", category: "Utilities" },
+    { description: "Movie Tickets", amount: 150,   type: "expense", category: "Entertainment" },
+    { description: "Freelance Work",amount: 3000,  type: "income",  category: "Income" },
+    { description: "Restaurant",    amount: 200,   type: "expense", category: "Food" },
+    { description: "Gas",           amount: 250,   type: "expense", category: "Transportation" },
+    { description: "New Shoes",     amount: 380,   type: "expense", category: "Shopping" }
 ];
 ```
 
 ### filter — Keep items matching a condition
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace transactions with your array name
+// - Replace expensesOnly / incomeOnly / searchResults with your result variable names
+// - Replace .type with your type property name (e.g. .type, .kind, .category)
+// - Replace "expense" / "income" with your actual string values
+// - Replace .description with your searchable property name
+// - Replace "rent" with the search term (or use a variable from an input)
+
 // 1a. All expenses (Lab 5 Module 3)
-const "change to expenses only variable" = "change to array name".filter(t => t."change to type property" === "expense");
+const expensesOnly = transactions.filter(t => t.type === "expense"); // ← replace array, var, and ".type"
 
 // 1b. All income
-const "change to income only variable" = "change to array name".filter(t => t."change to type property" === "income");
+const incomeOnly = transactions.filter(t => t.type === "income");    // ← replace var name
 
 // Case-insensitive search on description
-const "change to search results variable" = "change to array name".filter(t =>
-    t."change to description property".toLowerCase().includes("rent")
+const searchResults = transactions.filter(t =>                        // ← replace var name
+    t.description.toLowerCase().includes("rent")                     // ← replace .description and "rent"
 );
 ```
 
 ### map — Transform each item
 
 ```javascript
-// 1c. Extract just descriptions
-const "change to descriptions array variable" = "change to array name".map(t => t."change to description property");
+// SETUP REQUIRED:
+// - Replace transactions with your array name
+// - Replace descriptions / formattedStrings / rowsHTML with your result variable names
+// - Replace .description / .type / .amount / .category with your actual property names
+// - Replace " QAR" with your currency string
+// - Replace .type === "income" with your income check (e.g. .type === "income")
 
-// 1d. Format each into display string
-const "change to formatted strings variable" = "change to array name".map(t => {
-    const sign = t."change to type property" === "income" ? "+" : "-";
-    return `${t."change to description property"}: ${sign}${t."change to amount property".toLocaleString()} QAR`;
+// 1c. Extract just descriptions
+const descriptions = transactions.map(t => t.description);   // ← replace array, var, and ".description"
+
+// 1d. Format each into display string: "+12,000 QAR" or "-4,500 QAR"
+const formattedStrings = transactions.map(t => {              // ← replace var name
+    const sign = t.type === "income" ? "+" : "-";           // ← replace .type and values
+    return `${t.description}: ${sign}${t.amount.toLocaleString()} QAR`;
 });
 
 // Map to HTML table rows
-const "change to rows html variable" = "change to array name".map(t => `
+const rowsHTML = transactions.map(t => `                      // ← replace var name
     <tr>
-        <td>${t."change to description property"}</td>
-        <td>${t."change to category property"}</td>
-        <td>${t."change to amount property".toLocaleString()} QAR</td>
+        <td>${t.description}</td>
+        <td>${t.category}</td>
+        <td>${t.amount.toLocaleString()} QAR</td>
     </tr>
 `).join("");
-  // ALWAYS .join("") at the end to make one string
+// ALWAYS .join("") at the end to make one string
 ```
 
 ### reduce — Combine items into one value
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace transactions with your array name
+// - Replace totalIncome / totalExpenses / balance / largestExpense with your variable names
+// - Replace .type with your type property (e.g. .type, .kind)
+// - Replace .amount with your numeric property (e.g. .amount, .price, .cost)
+
 // 2a. Total income (filter first, then reduce)
-const "change to total income variable" = "change to array name"
-    .filter(t => t."change to type property" === "income")
-    .reduce((sum, t) => sum + t."change to amount property", 0);
+const totalIncome = transactions               // ← replace "totalIncome" and "transactions"
+    .filter(t => t.type === "income")          // ← replace .type and "income"
+    .reduce((sum, t) => sum + t.amount, 0);   // ← replace .amount
 
 // 2b. Total expenses
-const "change to total expenses variable" = "change to array name"
-    .filter(t => t."change to type property" === "expense")
-    .reduce((sum, t) => sum + t."change to amount property", 0);
+const totalExpenses = transactions             // ← replace "totalExpenses"
+    .filter(t => t.type === "expense")         // ← replace "expense"
+    .reduce((sum, t) => sum + t.amount, 0);   // ← replace .amount
 
 // 2c. Balance
-const "change to balance variable" = "change to total income variable" - "change to total expenses variable";
+const balance = totalIncome - totalExpenses;  // ← replace variable names
 
 // Find the LARGEST expense
-const "change to largest expense variable" = "change to array name"
-    .filter(t => t."change to type property" === "expense")
-    .reduce((max, t) => t."change to amount property" > max."change to amount property" ? t : max);
-// { description: "Rent", amount: 4500, ... }
+const largestExpense = transactions            // ← replace "largestExpense"
+    .filter(t => t.type === "expense")
+    .reduce((max, t) => t.amount > max.amount ? t : max);
+// Result: { description: "Rent", amount: 4500, ... }
 ```
 
 ### Grouping by Category with reduce (Lab 7 Module 1 Exercise 3 + Lab 5 Module 3 Exercise 3a)
 
 ```javascript
-// 3a. Group expenses by category
-const "change to grouped data variable" = "change to array name".reduce(("change to groups parameter", "change to item parameter") => {
-    if ("change to item parameter"."change to type property" === "expense") {
-        "change to groups parameter"["change to item parameter"."change to category property"] = ("change to groups parameter"["change to item parameter"."change to category property"] || 0) + "change to item parameter"."change to amount property";
-    }
-    return "change to groups parameter";
-}, {});  // {} is the starting accumulator
+// SETUP REQUIRED:
+// - Replace transactions with your array name
+// - Replace byCategory with your result variable name
+// - Replace groups / t with your accumulator and item variable names (keep as-is is fine)
+// - Replace .type / .category / .amount with your actual property names
+// - Remove the `if` block to group ALL items instead of just expenses
 
-// Group ALL (Lab 7 Module 1)
-const allByCategory = transactions.reduce((groups, t) => {
+// 3a. Group expenses by category (expenses only)
+const byCategory = transactions.reduce((groups, t) => {  // ← replace "byCategory" and "transactions"
+    if (t.type === "expense") {                           // ← replace .type and "expense" (remove if to group all)
+        groups[t.category] = (groups[t.category] || 0) + t.amount;  // ← replace .category and .amount
+    }
+    return groups;
+}, {});  // ← {} is the starting accumulator — do not change
+
+// Group ALL items by category (no type filter)
+const allByCategory = transactions.reduce((groups, t) => {  // ← replace variable names
     groups[t.category] = (groups[t.category] || 0) + t.amount;
     return groups;
 }, {});
@@ -308,17 +391,23 @@ const allByCategory = transactions.reduce((groups, t) => {
 ### Object.entries() — Loop over grouped data (Exercise 3b)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace byCategory with your grouped object variable name (result of reduce above)
+// - Replace category / total with your destructured key/value names (can keep as-is)
+// - Replace summaryHTML with your HTML result variable name
+// - Replace " QAR" with your currency string
+
 // 3b. Log each category with Object.entries().forEach()
-Object.entries("change to grouped data variable").forEach((["change to key variable", "change to value variable"]) => {
-    console.log(`${"change to key variable"}: ${"change to value variable"}.toLocaleString() + " QAR"`);
+Object.entries(byCategory).forEach(([category, total]) => {  // ← replace "byCategory"
+    console.log(`${category}: ${total.toLocaleString()} QAR`);  // ← replace " QAR" if needed
 });
 
 // Map categories to HTML cards
-const "change to summary html variable" = Object.entries("change to grouped data variable")
-    .map((["change to key variable", "change to value variable"]) => `
+const summaryHTML = Object.entries(byCategory)              // ← replace "summaryHTML" and "byCategory"
+    .map(([category, total]) => `
         <div class="card">
-            <h4>${"change to key variable"}</h4>
-            <p>${"change to value variable"}.toLocaleString() + " QAR"</p>
+            <h4>${category}</h4>
+            <p>${total.toLocaleString()} QAR</p>
         </div>
     `)
     .join("");
@@ -327,21 +416,28 @@ const "change to summary html variable" = Object.entries("change to grouped data
 ### Other Array Methods (used throughout labs)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace transactions with your array name (must be let, not const, if you reassign it)
+// - Replace the object literal properties with your actual property names and values
+// - Replace foundItem / idx / hasExpense with your variable names
+// - Replace t.id === 3 with your lookup condition (e.g. t.id === id, t.name === name)
+// - Replace updatedObject with the new object to replace the found item
+
 // push — add to end (every form submit)
-"change to array name".push({ "change to description property": "Lunch", "change to amount property": 45, "change to type property": "expense", "change to category property": "Food" });
+transactions.push({ description: "Lunch", amount: 45, type: "expense", category: "Food" }); // ← replace all
 
 // find — return first matching item
-const "change to found item variable" = "change to array name".find(t => t.id === 3);
+const foundItem = transactions.find(t => t.id === 3);    // ← replace "foundItem", array, condition
 
 // findIndex — return index of first match
-const "change to index variable" = "change to array name".findIndex(t => t.id === 3);
-"change to array name"["change to index variable"] = "change to updated object";
+const idx = transactions.findIndex(t => t.id === 3);     // ← replace "idx", condition
+transactions[idx] = updatedObject;                        // ← replace updatedObject with new item
 
-// filter to REMOVE by id
-"change to array name" = "change to array name".filter(t => t.id !== id);
+// filter to REMOVE by id (use let for array so you can reassign)
+transactions = transactions.filter(t => t.id !== id);    // ← replace condition (t.id !== id)
 
 // some — check if ANY item matches
-const "change to boolean flag variable" = "change to array name".some(t => t."change to type property" === "expense");
+const hasExpense = transactions.some(t => t.type === "expense"); // ← replace var and condition
 ```
 
 ---
@@ -365,84 +461,113 @@ Without this tag, your JS file sits there doing nothing. Check the console — i
 ### Selecting Elements (Exercise 1)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "myKey" with your localStorage key string (e.g. "balance", "module4-transactions")
+// - Replace balanceEl / incomeEl / expenseEl with your element variable names
+// - Replace "balance-display" / "income-display" / "expenses-display" with your HTML element IDs
+// - Replace ".card" with your CSS selector (e.g. ".card", "#summary", ".item")
+// - Replace ".amount" with your CSS selector for multiple elements
+
 // TODO 4: Save total balance to LocalStorage
 const totalBalance = 5000;
-localStorage.setItem("change to localstorage key", totalBalance);
+localStorage.setItem("myKey", totalBalance);              // ← replace "myKey"
 
 // TODO 5: Reload balance from LocalStorage
-const savedBalance = localStorage.getItem("change to localstorage key");
+const savedBalance = localStorage.getItem("myKey");       // ← replace "myKey"
 if (savedBalance) {
-    document.getElementById("change to balance element ID").textContent = savedBalance + " QAR";
+    document.getElementById("balance-display").textContent = savedBalance + " QAR"; // ← replace ID
 }
 
 // 1a. By ID — returns ONE element (fastest)
-const "change to balance element variable"  = document.getElementById("change to balance element ID");
-const "change to income element variable"   = document.getElementById("change to income element ID");
-const "change to expense element variable" = document.getElementById("change to expenses element ID");
+const balanceEl  = document.getElementById("balance-display");  // ← replace var and ID
+const incomeEl   = document.getElementById("income-display");   // ← replace var and ID
+const expenseEl  = document.getElementById("expenses-display"); // ← replace var and ID
 
 // 1b. Log textContent
-console.log("change to balance element variable".textContent);
+console.log(balanceEl.textContent);                       // ← replace balanceEl
 
 // 1c. By CSS selector — first match
-const "change to first card variable" = document.querySelector("change to card selector");
-console.log("change to first card variable".querySelector("h3").textContent);
+const firstCard = document.querySelector(".card");         // ← replace ".card" with your selector
+console.log(firstCard.querySelector("h3").textContent);
 
 // 1d. By CSS selector — ALL matches
-const "change to all amounts variable" = document.querySelectorAll("change to amounts selector");
-console.log("Found", "change to all amounts variable".length, "amounts");
+const allAmounts = document.querySelectorAll(".amount");   // ← replace ".amount" with your selector
+console.log("Found", allAmounts.length, "amounts");
 ```
 
 ### Reading & Modifying Elements (Exercise 2)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace balanceEl with your element variable (obtained via getElementById above)
+// - Replace "50,000" with the value you want to display
+// - Replace "text-success" / "text-danger" with your CSS class names
+// - Replace "output2" with your element ID for styling
+// - Replace "#f0f0f0" / "red" with your color values
+// - Replace "nav-menu" / "show" with your nav element ID and toggle class name
+
 // 2a. Set textContent (safe — does not parse HTML)
-balanceEl.textContent = "50,000";
+balanceEl.textContent = "50,000";                          // ← replace var and value
 
 // 2b. Add CSS class
-balanceEl.classList.add("text-success");
+balanceEl.classList.add("text-success");                   // ← replace class name
 
 // 2c. Change inline style
-document.getElementById("output2").style.backgroundColor = "#f0f0f0";
-document.getElementById("output2").style.color = "red";
+document.getElementById("output2").style.backgroundColor = "#f0f0f0"; // ← replace ID and color
+document.getElementById("output2").style.color = "red";               // ← replace ID and color
 
 // Set innerHTML (allows HTML tags)
-balanceEl.innerHTML = "<strong>50,000</strong> QAR";
+balanceEl.innerHTML = "<strong>50,000</strong> QAR";       // ← replace var and content
 
 // Remove class
-balanceEl.classList.remove("text-danger");
+balanceEl.classList.remove("text-danger");                 // ← replace class name
 
 // Toggle class (add if absent, remove if present)
-const nav = document.getElementById("nav-menu");
-nav.classList.toggle("show");
+const nav = document.getElementById("nav-menu");           // ← replace ID
+nav.classList.toggle("show");                              // ← replace class name
 
 // Check class
-if (balanceEl.classList.contains("text-success")) { /* ... */ }
+if (balanceEl.classList.contains("text-success")) { /* ... */ } // ← replace class name
 ```
 
 ### Creating & Appending Elements (Exercise 3)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace newCard with your element variable name
+// - Replace "div" with the HTML tag you need (e.g. "li", "tr", "p")
+// - Replace "card" with your CSS class name
+// - Replace the innerHTML content with your actual display content
+// - Replace calcSavingsRate(12000, 8500) with your function call and actual arguments
+// - Replace "container" with your parent element ID
+
 // 3a. Create element
-const newCard = document.createElement("div");
+const newCard = document.createElement("div"); // ← replace var and tag name
 
 // 3b. Set class
-newCard.className = "card";
+newCard.className = "card";                    // ← replace class name
 
-// 3c. Set inner HTML (uses calcSavingsRate from module)
+// 3c. Set inner HTML
 newCard.innerHTML = `
     <h3>Savings Rate</h3>
-    <p>${calcSavingsRate(12000, 8500)}%</p>
+    <p>${calcSavingsRate(12000, 8500)}%</p>    <!-- ← replace function and args -->
 `;
 
 // 3d. Append to parent
-document.getElementById("container").appendChild(newCard);
+document.getElementById("container").appendChild(newCard); // ← replace "container"
 ```
 
 ### Coloring Balance Green/Red (universal pattern — appears in EVERY Part B)
 
 ```javascript
-const balanceEl = document.getElementById("total-balance");
-balanceEl.textContent = balance.toLocaleString() + " QAR";
+// SETUP REQUIRED:
+// - Replace "total-balance" with your balance element's HTML ID
+// - Replace balance with your balance variable name
+// - Replace " QAR" with your currency string
+// - Class names "text-success" / "text-danger" must match your CSS
+
+const balanceEl = document.getElementById("total-balance");  // ← replace "total-balance"
+balanceEl.textContent = balance.toLocaleString() + " QAR";   // ← replace balance var and " QAR"
 
 // Approach 1 — classList (preferred in labs)
 balanceEl.classList.remove("text-success", "text-danger");
@@ -461,64 +586,85 @@ balanceEl.style.color = balance >= 0 ? "green" : "red";
 ### Click Events (Exercise 1 — running balance)
 
 ```javascript
-let "change to balance variable" = 0;
-const "change to balance display element variable" = document.getElementById("change to balance display ID");
+// SETUP REQUIRED:
+// - Replace currentBalance with your running balance variable name
+// - Replace balanceDisplayEl with your display element variable name
+// - Replace "balance-display" with your balance span/p element's HTML ID
+// - Replace "add-income-btn" with your income button's HTML ID (from Lab 5 Module 5: #add-income-btn)
+// - Replace "add-expense-btn" with your expense button's HTML ID (from Lab 5: #add-expense-btn)
+// - Replace "reset-btn" with your reset button's HTML ID (from Lab 5: #reset-btn)
+// - Replace 1000 / 500 with your actual increment/decrement amounts
 
-// 1a. Add income button (+1000)
-document.getElementById("change to income button ID").addEventListener("click", () => {
-    "change to balance variable" += 1000;
-    "change to balance display element variable".textContent = "change to balance variable".toLocaleString() + " QAR";
+let currentBalance = 0;                                            // ← replace variable name
+const balanceDisplayEl = document.getElementById("balance-display"); // ← replace var and ID
+
+// 1a. Add income button
+document.getElementById("add-income-btn").addEventListener("click", () => { // ← replace ID
+    currentBalance += 1000;                                        // ← replace var and amount
+    balanceDisplayEl.textContent = currentBalance.toLocaleString() + " QAR";
 });
 
-// 1b. Add expense button (-500)
-document.getElementById("change to expense button ID").addEventListener("click", () => {
-    "change to balance variable" -= 500;
-    "change to balance display element variable".textContent = "change to balance variable".toLocaleString() + " QAR";
+// 1b. Add expense button
+document.getElementById("add-expense-btn").addEventListener("click", () => { // ← replace ID
+    currentBalance -= 500;                                         // ← replace var and amount
+    balanceDisplayEl.textContent = currentBalance.toLocaleString() + " QAR";
 });
 
 // 1c. Reset button
-document.getElementById("change to reset button ID").addEventListener("click", () => {
-    "change to balance variable" = 0;
-    "change to balance display element variable".textContent = "0 QAR";
+document.getElementById("reset-btn").addEventListener("click", () => {      // ← replace ID
+    currentBalance = 0;                                            // ← replace var
+    balanceDisplayEl.textContent = "0 QAR";
 });
 ```
 
 ### Input Events (Exercise 2 — real-time preview)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "amount-input" with your input element's HTML ID (from Lab 5: #amount-input)
+// - Replace "amount-preview" with your preview element's HTML ID (from Lab 5: #amount-preview)
+// - Replace " QAR" with your currency string
+
 // 2a. Live amount preview as user types
-document.getElementById("amount-input").addEventListener("input", (event) => {
+document.getElementById("amount-input").addEventListener("input", (event) => { // ← replace ID
     const value = event.target.value;   // read what user typed
-    document.getElementById("amount-preview").textContent =
-        Number(value).toLocaleString() + " QAR";
+    document.getElementById("amount-preview").textContent =   // ← replace ID
+        Number(value).toLocaleString() + " QAR";              // ← replace " QAR"
 });
 ```
 
 ### Form Submit Events (Exercise 3 — the universal pattern)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "transaction-form" with your form element's HTML ID
+// - Replace "transaction-body" with your <tbody> element's HTML ID
+// - Replace transactions with your array variable name (must be let)
+// - Replace "desc-input" / "form-amount" / "type-select" / "category-select" with your input IDs
+//   (From Lab 5 Module 5: #desc-input, #form-amount, #type-select)
+
 // Step 1: get form + table elements
-const itemForm  = document.getElementById("change to form ID");
-const itemTable = document.getElementById("change to table body ID");
+const itemForm  = document.getElementById("transaction-form");  // ← replace ID
+const itemTable = document.getElementById("transaction-body");  // ← replace ID
 
 // Step 2: array to hold data
-let "change to array name" = [];
+let transactions = [];                                          // ← replace variable name
 
 // Step 3: Handle form submission
 itemForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     // Get values from inputs
-    const description = document.getElementById("change to description input ID").value;
-    const amount      = Number(document.getElementById("change to amount input ID").value);
-    const type        = document.getElementById("change to type select ID").value;
-    const category    = document.getElementById("change to category select ID").value;
+    const description = document.getElementById("desc-input").value;             // ← replace ID
+    const amount      = Number(document.getElementById("form-amount").value);    // ← replace ID
+    const type        = document.getElementById("type-select").value;            // ← replace ID
+    const category    = document.getElementById("category-select").value;        // ← replace ID
 
-    const newItem = { description, amount, type, category };
-    "change to array name".push(newItem);
+    const newItem = { description, amount, type, category };                     // ← match your properties
+    transactions.push(newItem);                                                  // ← replace array name
 
     // Render table
-    itemTable.innerHTML = "change to array name".map(item => `
+    itemTable.innerHTML = transactions.map(item => `
         <tr>
             <td>${item.description}</td>
             <td class="${item.type === 'income' ? 'text-success' : 'text-danger'}">${item.amount}</td>
@@ -533,20 +679,29 @@ itemForm.addEventListener("submit", (e) => {
 ### change Event for Dropdowns (used in filter)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace "filter-type" with your dropdown's HTML ID
+// - Replace renderTransactions with your render function name
+
 // Fires when user selects a different option
-document.getElementById("filter-type").addEventListener("change", () => {
-    renderTransactions();
+document.getElementById("filter-type").addEventListener("change", () => { // ← replace ID
+    renderTransactions();   // ← replace with your render function name
 });
 ```
 
 ### querySelectorAll + forEach (multiple elements)
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace ".nav-link" with your nav link CSS class (e.g. ".nav-link", ".menu-item")
+// - Replace "active" with your active class name
+// - Replace page with your page variable (string like "home", "recipes", etc.)
+
 // Active nav link pattern
-document.querySelectorAll(".nav-link").forEach(link => {
-    link.classList.remove("active");
+document.querySelectorAll(".nav-link").forEach(link => { // ← replace ".nav-link"
+    link.classList.remove("active");                      // ← replace "active"
 });
-document.querySelector(`.nav-link[onclick*="'${page}'"]`)?.classList.add("active");
+document.querySelector(`.nav-link[onclick*="'${page}'"]`)?.classList.add("active"); // ← replace selector
 ```
 
 ---
@@ -558,52 +713,68 @@ document.querySelector(`.nav-link[onclick*="'${page}'"]`)?.classList.add("active
 This is the template every Part B builds on. Know all 4 steps.
 
 ```javascript
+// SETUP REQUIRED:
+// - Replace formatCurrency with your currency formatter function name (e.g. formatCurrency, formatAmount)
+// - Replace calcSavingsRate with your savings rate function name
+// - Replace transactions with your array variable name (must be let)
+// - Replace updateDashboard with your dashboard function name (exam uses updateDashboard or updateSummary)
+// - Replace renderTransactions with your render function name
+// - Replace all HTML element IDs to match your HTML file:
+//   "total-income" → your income display element ID
+//   "total-expenses" → your expenses display element ID
+//   "total-balance" → your balance display element ID
+//   "savings-rate" → your savings rate element ID
+//   "transaction-body" → your <tbody> element ID
+//   "quick-transaction-form" → your form element ID (Lab 5 Part B: #quick-transaction-form)
+//   "quick-desc" / "quick-amount" / "quick-type" → your input IDs (Lab 5 Part B names)
+//   "clear-btn" → your clear button ID
+
 /* ===== Lab 5 Module 6 + Part B — Full Pattern ===== */
 
 // Step 1: Helper functions
-const "change to format currency function name" = ("change to amount parameter") => "change to amount parameter".toLocaleString() + " QAR";
+const formatCurrency = (amount) => amount.toLocaleString() + " QAR";  // ← replace name, " QAR"
 
-const "change to calculate savings rate function name" = ("change to income parameter", "change to expenses parameter") => {
-    if ("change to income parameter" === 0) return "0.0";
-    return ((("change to income parameter" - "change to expenses parameter") / "change to income parameter") * 100).toFixed(1);
+const calcSavingsRate = (income, expenses) => {                         // ← replace name and params
+    if (income === 0) return "0.0";
+    return (((income - expenses) / income) * 100).toFixed(1);
 };
 
 // Step 2: Data storage — empty array
-let "change to array name" = [];
+let transactions = [];                                                  // ← replace variable name
 
 // Step 3: updateDashboard()
-function "change to update dashboard function name"() {
-    const "change to total income variable" = "change to array name"
-        .filter(t => t."change to type property" === "income")
-        .reduce((sum, t) => sum + t."change to amount property", 0);
+function updateDashboard() {                                            // ← replace function name
+    const totalIncome = transactions                                    // ← replace array and var
+        .filter(t => t.type === "income")                             // ← replace .type and "income"
+        .reduce((sum, t) => sum + t.amount, 0);                       // ← replace .amount
 
-    const "change to total expenses variable" = "change to array name"
-        .filter(t => t."change to type property" === "expense")
-        .reduce((sum, t) => sum + t."change to amount property", 0);
+    const totalExpenses = transactions                                  // ← replace var
+        .filter(t => t.type === "expense")
+        .reduce((sum, t) => sum + t.amount, 0);
 
-    const "change to balance variable" = "change to total income variable" - "change to total expenses variable";
+    const balance = totalIncome - totalExpenses;                        // ← replace var names
 
-    document.getElementById("change to total income element ID").textContent   = "change to format currency function name"("change to total income variable");
-    document.getElementById("change to total expenses element ID").textContent = "change to format currency function name"("change to total expenses variable");
-    document.getElementById("change to balance element ID").textContent  = "change to format currency function name"("change to balance variable");
-    document.getElementById("change to savings rate element ID").textContent   = "change to calculate savings rate function name"("change to total income variable", "change to total expenses variable") + "%";
+    document.getElementById("total-income").textContent   = formatCurrency(totalIncome);    // ← replace IDs
+    document.getElementById("total-expenses").textContent = formatCurrency(totalExpenses);
+    document.getElementById("total-balance").textContent  = formatCurrency(balance);
+    document.getElementById("savings-rate").textContent   = calcSavingsRate(totalIncome, totalExpenses) + "%";
 
     // Color the balance
-    const "change to balance element variable" = document.getElementById("change to balance element ID");
-    "change to balance element variable".classList.remove("text-success", "text-danger");
-    "change to balance element variable".classList.add("change to balance variable" >= 0 ? "text-success" : "text-danger");
+    const balanceEl = document.getElementById("total-balance");         // ← replace ID
+    balanceEl.classList.remove("text-success", "text-danger");
+    balanceEl.classList.add(balance >= 0 ? "text-success" : "text-danger");
 }
 
 // Step 4: renderTransactions()
-function renderTransactions() {
-    const tableBody = document.getElementById("change to table body ID");
+function renderTransactions() {                                          // ← replace function name
+    const tableBody = document.getElementById("transaction-body");     // ← replace ID
 
-    if ("change to array name".length === 0) {
+    if (transactions.length === 0) {                                    // ← replace array name
         tableBody.innerHTML = `<tr><td colspan="3" class="empty-state">No transactions yet</td></tr>`;
         return;
     }
 
-    tableBody.innerHTML = "change to array name".map(t => `
+    tableBody.innerHTML = transactions.map(t => `
         <tr>
             <td>${t.description}</td>
             <td>${t.type}</td>
@@ -615,21 +786,21 @@ function renderTransactions() {
 }
 
 // Step 5: Form submit listener (#quick-transaction-form in Part B)
-document.getElementById("change to form ID").addEventListener("submit", (e) => {
+document.getElementById("quick-transaction-form").addEventListener("submit", (e) => { // ← replace ID
     e.preventDefault();
-    const description = document.getElementById("change to description input ID").value;
-    const amount      = Number(document.getElementById("change to amount input ID").value);
-    const type        = document.getElementById("change to type select ID").value;
+    const description = document.getElementById("quick-desc").value;   // ← replace ID
+    const amount      = Number(document.getElementById("quick-amount").value);  // ← replace ID
+    const type        = document.getElementById("quick-type").value;   // ← replace ID
 
-    "change to array name".push({ description, amount, type });
+    transactions.push({ description, amount, type });                   // ← replace array and properties
     updateDashboard();
     renderTransactions();
     e.target.reset();
 });
 
 // Step 6: Clear button (#clear-btn)
-document.getElementById("change to clear button ID").addEventListener("click", () => {
-    "change to array name".length = 0;  // clear in place
+document.getElementById("clear-btn").addEventListener("click", () => { // ← replace ID
+    transactions.length = 0;  // clear in place (keeps same array reference)
     updateDashboard();
     renderTransactions();
 });
@@ -644,23 +815,29 @@ document.getElementById("change to clear button ID").addEventListener("click", (
 ### Exercise 1: Transaction Class (core — appears in every lab from 6 onward)
 
 ```javascript
-// TODO: Define the "change to class name" class with constructor and 3 methods
-class "change to class name" {
-    constructor("change to description property", "change to amount property", "change to type property", "change to category property") {
-        this."change to description property" = "change to description property";
-        this."change to amount property"      = "change to amount property";
-        this."change to type property"        = "change to type property";
-        this."change to category property"    = "change to category property";
+// SETUP REQUIRED:
+// - Replace Transaction with your class name (exam may use Item, Recipe, Product, etc.)
+// - Replace description / amount / type / category with your constructor parameter and property names
+// - Replace format with your formatting method name (exam uses format())
+// - Replace isExpense / isIncome with your check method names (exam uses isExpense() and isIncome())
+// - Replace " QAR" with your currency string if different
+
+class Transaction {                    // ← replace class name
+    constructor(description, amount, type, category) {  // ← replace parameter names
+        this.description = description; // ← replace property names to match parameters
+        this.amount      = amount;
+        this.type        = type;
+        this.category    = category;
     }
 
     // Returns "+8,000 QAR" for income, "-3,500 QAR" for expense
-    "change to format method"() {
-        const sign = this."change to type property" === "income" ? "+" : "-";
-        return sign + this."change to amount property".toLocaleString() + " QAR";
+    format() {                         // ← replace method name
+        const sign = this.type === "income" ? "+" : "-";  // ← replace .type and "income"
+        return sign + this.amount.toLocaleString() + " QAR"; // ← replace .amount and " QAR"
     }
 
-    "change to isExpense check method"() { return this."change to type property" === "expense"; }
-    "change to isIncome check method"()  { return this."change to type property" === "income";  }
+    isExpense() { return this.type === "expense"; } // ← replace method name, .type, "expense"
+    isIncome()  { return this.type === "income";  } // ← replace method name, .type, "income"
 }
 
 // Tests from lab:
@@ -675,32 +852,38 @@ console.log(t2.isExpense()); // true
 ### Exercise 2: Account Class with Methods
 
 ```javascript
-// TODO: Define the "change to Account class name" class with constructor and 3 methods
-class "change to Account class name" {
-    constructor("change to name property", "change to type property", "change to balance property") {
-        this."change to name property"      = "change to name property";
-        this."change to type property"      = "change to type property";
-        this."change to balance property"   = "change to balance property";
-        this."change to createdAt property" = new Date().toLocaleDateString();  // auto-set!
+// SETUP REQUIRED:
+// - Replace Account with your class name (exam keeps it as Account)
+// - Replace name / type / balance with your constructor parameter/property names
+// - Replace deposit / withdraw / getBalance with your method names
+// - Replace " QAR" with your currency string
+// - The createdAt property is auto-set by the constructor — do not pass it as an argument
+
+class Account {                        // ← replace class name
+    constructor(name, type, balance) { // ← replace parameter names
+        this.name      = name;         // ← replace property names to match parameters
+        this.type      = type;
+        this.balance   = balance;
+        this.createdAt = new Date().toLocaleDateString();  // auto-set — do not change
     }
 
-    "change to deposit method"(amount) {
-        this."change to balance property" += amount;
+    deposit(amount) {                  // ← replace method name
+        this.balance += amount;        // ← replace .balance
         console.log(`Deposited ${amount.toLocaleString()} QAR`);
     }
 
-    "change to withdraw method"(amount) {
-        if (amount > this."change to balance property") {
+    withdraw(amount) {                 // ← replace method name
+        if (amount > this.balance) {   // ← replace .balance
             console.log("Insufficient funds");
-            return false;  // return false for test assertions
+            return false;              // return false for test assertions
         }
-        this."change to balance property" -= amount;
+        this.balance -= amount;
         console.log(`Withdrew ${amount.toLocaleString()} QAR`);
         return true;
     }
 
-    "change to getBalance method"() {
-        return this."change to balance property".toLocaleString() + " QAR";
+    getBalance() {                     // ← replace method name
+        return this.balance.toLocaleString() + " QAR"; // ← replace .balance and " QAR"
     }
 }
 
@@ -717,17 +900,23 @@ acc.withdraw(50000);                             // Insufficient funds
 ### Exercise 3: BudgetCategory with toString()
 
 ```javascript
-// TODO: Define the BudgetCategory class
-class BudgetCategory {
-    constructor(name, budgeted, spent = 0) {
+// SETUP REQUIRED:
+// - Replace BudgetCategory with your class name if different
+// - Replace name / budgeted / spent with your property names
+// - Replace addSpending / getRemaining / isOverBudget with your method names
+// - toString() is called automatically in template literals: `${food}` calls food.toString()
+// - Replace " QAR" with your currency string
+
+class BudgetCategory {                 // ← replace class name if needed
+    constructor(name, budgeted, spent = 0) { // ← replace params (spent defaults to 0)
         this.name     = name;
         this.budgeted = budgeted < 0 ? 0 : budgeted;  // guard negative
         this.spent    = spent;
     }
 
-    addSpending(amount)  { this.spent += amount; }
-    getRemaining()       { return this.budgeted - this.spent; }
-    isOverBudget()       { return this.spent > this.budgeted; }
+    addSpending(amount)  { this.spent += amount; }              // ← replace method name
+    getRemaining()       { return this.budgeted - this.spent; } // ← replace method name
+    isOverBudget()       { return this.spent > this.budgeted; } // ← replace method name
 
     // toString() is called automatically in template literals: `${food}` → food.toString()
     toString() {
@@ -749,61 +938,70 @@ console.log("Over budget?", food.isOverBudget()); // true
 ### AccountManager Class (Lab 6 Part B — the full OOP manager)
 
 ```javascript
-// TODO: Define "change to Manager class name" class here
-class "change to Manager class name" {
+// SETUP REQUIRED:
+// - Replace AccountManager with your manager class name (exam uses AccountManager)
+// - Replace storageKey with your localStorage key property name
+// - Replace "lab6-transactions" with your actual localStorage key string
+// - Replace transactions (this.transactions) with your internal array property name
+// - Replace Transaction with your data class name (must match what you defined in Exercise 1)
+// - Replace add / remove / getAll / clear / save / getTotals / getCategorySummary / getSavingsRate
+//   with your method names (Lab 6 Part B uses these exact names)
+// - Replace .type / .amount / .category with your property names
+
+class AccountManager {                          // ← replace class name
     constructor() {
-        this."change to storage key property" = "change to storage key value";
-        const saved       = localStorage.getItem(this."change to storage key property");
-        this."change to array name" = saved ? JSON.parse(saved) : [];
+        this.storageKey   = "lab6-transactions"; // ← replace property name and key string
+        const saved       = localStorage.getItem(this.storageKey);
+        this.transactions = saved ? JSON.parse(saved) : [];  // ← replace "transactions" property
     }
 
-    "change to add method"("change to description property", "change to amount property", "change to type property", "change to category property") {
-        const t = new "change to class name"("change to description property", "change to amount property", "change to type property", "change to category property");
-        this."change to array name".push(t);
-        this."change to save method"();
+    add(description, amount, type, category) {  // ← replace method name and param names
+        const t = new Transaction(description, amount, type, category); // ← replace class name
+        this.transactions.push(t);
+        this.save();
         return t;
     }
 
-    "change to remove method"("change to index parameter") {
-        this."change to array name".splice("change to index parameter", 1);
-        this."change to save method"();
+    remove(index) {                             // ← replace method name
+        this.transactions.splice(index, 1);
+        this.save();
     }
 
-    "change to get all method"()  { return this."change to array name"; }
-    "change to clear method"()   { this."change to array name" = []; this."change to save method"(); }
-    "change to save method"()    { localStorage.setItem(this."change to storage key property", JSON.stringify(this."change to array name")); }
+    getAll()  { return this.transactions; }     // ← replace method name
+    clear()   { this.transactions = []; this.save(); }  // ← replace method name
+    save()    { localStorage.setItem(this.storageKey, JSON.stringify(this.transactions)); } // ← replace method name
 
-    "change to get totals method"() {
-        const income   = this."change to array name".filter(t => t."change to type property" === "income")
-                             .reduce((sum, t) => sum + Number(t."change to amount property"), 0);
-        const expenses = this."change to array name".filter(t => t."change to type property" === "expense")
-                             .reduce((sum, t) => sum + Number(t."change to amount property"), 0);
+    getTotals() {                               // ← replace method name
+        const income   = this.transactions.filter(t => t.type === "income")
+                             .reduce((sum, t) => sum + Number(t.amount), 0);
+        const expenses = this.transactions.filter(t => t.type === "expense")
+                             .reduce((sum, t) => sum + Number(t.amount), 0);
         return { 
             income, 
             expenses, 
             balance: income - expenses, 
-            count: this."change to array name".length 
+            count: this.transactions.length 
         };
     }
 
-    "change to get category summary method"() {
-        return this."change to array name".reduce((acc, t) => {
-            if (t."change to type property" === "expense") {
-                acc[t."change to category property"] = (acc[t."change to category property"] || 0) + Number(t."change to amount property");
+    getCategorySummary() {                      // ← replace method name
+        return this.transactions.reduce((acc, t) => {
+            if (t.type === "expense") {
+                acc[t.category] = (acc[t.category] || 0) + Number(t.amount);
             }
             return acc;
         }, {});
     }
 
-    "change to get savings rate method"() {
-        const { income, expenses } = this."change to get totals method"();
+    getSavingsRate() {                          // ← replace method name
+        const { income, expenses } = this.getTotals();
         if (income === 0) return "0.0";
         return (((income - expenses) / income) * 100).toFixed(1);
     }
 }
 
-// TODO: Create an instance
-const manager = new AccountManager();
+// Create an instance
+const manager = new AccountManager();           // ← replace class name
 ```
 
 ---
@@ -815,17 +1013,25 @@ const manager = new AccountManager();
 ### Exercise 1: SavingsAccount extends Account
 
 ```javascript
-// TODO: Define "change to Savings Account class name" class
-class "change to Savings Account class name" extends "change to Account class name" {
-    constructor("change to name property", "change to balance property", "change to profit rate property") {
-        super("change to name property", "savings", "change to balance property");  // MUST be first line
-        // "savings" is hardcoded as the type — set by super
-        this."change to profit rate property" = "change to profit rate property";
+// SETUP REQUIRED:
+// - Replace SavingsAccount with your child class name
+// - Replace Account with your parent class name (must match the class you defined in Exercise 2)
+// - Replace name / balance / profitRate with your constructor parameter/property names
+// - super() MUST be the very first line in the constructor
+// - Replace "savings" if your type string is different ("savings" is hardcoded because all savings accounts have this type)
+// - Replace applyProfit with your method name (exam uses applyProfit)
+// - Replace .balance and .profitRate with your property names
+// - The return value of applyProfit() is used in Mocha tests — keep the return
+
+class SavingsAccount extends Account {         // ← replace both class names
+    constructor(name, balance, profitRate) {   // ← replace parameter names
+        super(name, "savings", balance);       // ← "savings" is hardcoded type; replace name/balance
+        this.profitRate = profitRate;          // ← replace property name
     }
 
-    "change to apply profit method"() {
-        const profit = this."change to balance property" * this."change to profit rate property";
-        this."change to balance property" += profit;
+    applyProfit() {                            // ← replace method name
+        const profit = this.balance * this.profitRate;  // ← replace .balance and .profitRate
+        this.balance += profit;
         console.log(`Profit earned: ${profit.toLocaleString()} QAR`);
         return profit;  // return value used in Mocha tests!
     }
@@ -842,16 +1048,23 @@ console.log("After profit:", savings.getBalance()); // 20,800 QAR
 ### Exercise 2: RecurringTransaction extends Transaction
 
 ```javascript
-// TODO: Define "change to Recurring Transaction class name" class
-class "change to Recurring Transaction class name" extends "change to class name" {
-    constructor("change to description property", "change to amount property", "change to type property", "change to category property", "change to frequency property") {
-        super("change to description property", "change to amount property", "change to type property", "change to category property");  // call constructor
-        this."change to frequency property" = "change to frequency property";  // "monthly", "weekly", etc.
+// SETUP REQUIRED:
+// - Replace RecurringTransaction with your child class name
+// - Replace Transaction with your parent class name (must match Exercise 1 class)
+// - Replace description / amount / type / category / frequency with your parameter/property names
+// - super() MUST be first, passing all the parent's parameters
+// - Replace frequency with your extra property name ("monthly", "weekly", etc.)
+// - Replace format with your method name — it overrides the parent's format() by using super.format()
+
+class RecurringTransaction extends Transaction { // ← replace both class names
+    constructor(description, amount, type, category, frequency) { // ← replace params
+        super(description, amount, type, category);               // MUST be first line
+        this.frequency = frequency;  // ← replace property name ("monthly", "weekly", etc.)
     }
 
     // Override format() using super.format()
-    "change to format method"() {
-        return super."change to format method"() + ` (${this."change to frequency property"})`;
+    format() {                                       // ← replace method name
+        return super.format() + ` (${this.frequency})`; // ← replace super.format() and .frequency
     }
 }
 
@@ -919,48 +1132,60 @@ Run tests: `npm test`
 ### Import / Export for Tests
 
 ```javascript
-// In "change to file name".js — export your classes
-export { "change to class name", "change to Account class name", "change to Savings Account class name" };
+// SETUP REQUIRED:
+// - Replace Transaction / Account / SavingsAccount with your actual class names
+// - Replace "../js/practice.js" with the relative path to your class file
+// - The .js extension in imports is MANDATORY in ESM — do not omit it
 
-// In "change to test file name".spec.js — import them
+// In your practice.js file — export your classes at the bottom
+export { Transaction, Account, SavingsAccount };  // ← replace class names
+
+// In your .spec.js test file — import them at the top
 import { expect } from "chai";
-import { "change to class name", "change to Account class name", "change to Savings Account class name" } from "../js/path_to_file.js";
+import { Transaction, Account, SavingsAccount } from "../js/practice.js"; // ← replace path and class names
 // ALWAYS include .js extension in ESM imports
 ```
 
 ### Exercise 1: Testing Transaction (solved — Tutorial B01)
 
 ```javascript
-describe("change to test suite name", () => {
+// SETUP REQUIRED:
+// - Replace "Transaction" (describe string) with your test suite name (usually the class name)
+// - Replace Transaction (new Transaction(...)) with your class name
+// - Replace description / amount / type / category with your property names
+// - Replace format / isIncome / isExpense with your method names
+// - Replace the expected values ("+8,000 QAR", "-3,500 QAR") with what your format() actually returns
 
-    // TODO: Test that constructor sets properties
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to class name"("change to description value", 8000, "income", "Salary");
-        expect("change to instance variable"."change to description property").to.equal("change to description value");
-        expect("change to instance variable"."change to amount property").to.equal(8000);
-        expect("change to instance variable"."change to type property").to.equal("income");
-        expect("change to instance variable"."change to category property").to.equal("Salary");
+describe("Transaction", () => {     // ← replace suite name string
+
+    // Test that constructor sets properties
+    it("should set all properties from constructor", () => {  // ← replace description string
+        const t = new Transaction("Salary", 8000, "income", "Salary"); // ← replace class and args
+        expect(t.description).to.equal("Salary");  // ← replace property names and expected values
+        expect(t.amount).to.equal(8000);
+        expect(t.type).to.equal("income");
+        expect(t.category).to.equal("Salary");
     });
 
-    // TODO: Test format() for income
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to class name"("Salary", 8000, "income", "Salary");
-        expect("change to instance variable"."change to format method"()).to.equal("+8,000 QAR");
+    // Test format() for income
+    it("should format income with + sign", () => {   // ← replace description string
+        const t = new Transaction("Salary", 8000, "income", "Salary");
+        expect(t.format()).to.equal("+8,000 QAR");   // ← replace method name and expected string
     });
 
-    // TODO: Test format() for expense
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to class name"("Rent", 3500, "expense", "Housing");
-        expect("change to instance variable"."change to format method"()).to.equal("-3,500 QAR");
+    // Test format() for expense
+    it("should format expense with - sign", () => {  // ← replace description string
+        const t = new Transaction("Rent", 3500, "expense", "Housing");
+        expect(t.format()).to.equal("-3,500 QAR");   // ← replace method name and expected string
     });
 
-    // TODO: Test checks
-    it("change to test description", () => {
-        const "change to income instance"  = new "change to class name"("Salary", 8000, "income",  "Salary");
-        const "change to expense instance" = new "change to class name"("Rent",   3500, "expense", "Housing");
-        expect("change to income instance"."change to isIncome check method"()).to.equal(true);
-        expect("change to income instance"."change to isExpense check method"()).to.equal(false);
-        expect("change to expense instance"."change to isExpense check method"()).to.equal(true);
+    // Test checks
+    it("should correctly identify transaction type", () => { // ← replace description string
+        const income  = new Transaction("Salary", 8000, "income",  "Salary");  // ← replace class
+        const expense = new Transaction("Rent",   3500, "expense", "Housing"); // ← replace class
+        expect(income.isIncome()).to.equal(true);    // ← replace method name
+        expect(income.isExpense()).to.equal(false);  // ← replace method name
+        expect(expense.isExpense()).to.equal(true);  // ← replace method name
     });
 });
 ```
@@ -968,34 +1193,41 @@ describe("change to test suite name", () => {
 ### Exercise 2: Testing Account (solved)
 
 ```javascript
-describe("change to test suite name", () => {
+// SETUP REQUIRED:
+// - Replace "Account" with your test suite name string
+// - Replace Account (new Account(...)) with your class name
+// - Replace deposit / withdraw / getBalance with your method names
+// - Replace balance with your balance property name
+// - Replace expected values (1500, 700, false, 1000, "15,000 QAR") if your implementation differs
 
-    // TODO: Test deposit
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Account class name"("Test", "checking", 1000);
-        "change to instance variable"."change to deposit method"(500);
-        expect("change to instance variable"."change to balance property").to.equal(1500);
+describe("Account", () => {         // ← replace suite name string
+
+    // Test deposit
+    it("should increase balance after deposit", () => { // ← replace description
+        const acc = new Account("Test", "checking", 1000); // ← replace class and args
+        acc.deposit(500);                                   // ← replace method name
+        expect(acc.balance).to.equal(1500);                // ← replace property and expected value
     });
 
-    // TODO: Test successful withdraw
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Account class name"("Test", "checking", 1000);
-        "change to instance variable"."change to withdraw method"(300);
-        expect("change to instance variable"."change to balance property").to.equal(700);
+    // Test successful withdraw
+    it("should decrease balance after withdraw", () => { // ← replace description
+        const acc = new Account("Test", "checking", 1000);
+        acc.withdraw(300);                                  // ← replace method name
+        expect(acc.balance).to.equal(700);                 // ← replace expected value
     });
 
-    // TODO: Test insufficient funds
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Account class name"("Test", "checking", 1000);
-        const "change to result variable" = "change to instance variable"."change to withdraw method"(5000);
-        expect("change to result variable").to.equal(false);
-        expect("change to instance variable"."change to balance property").to.equal(1000);  // unchanged
+    // Test insufficient funds
+    it("should return false when withdrawing more than balance", () => { // ← replace description
+        const acc = new Account("Test", "checking", 1000);
+        const result = acc.withdraw(5000);                 // ← replace method name
+        expect(result).to.equal(false);
+        expect(acc.balance).to.equal(1000);                // unchanged ← replace property
     });
 
-    // TODO: Test getBalance formatting
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Account class name"("Test", "checking", 15000);
-        expect("change to instance variable"."change to getBalance method"()).to.equal("15,000 QAR");
+    // Test getBalance formatting
+    it("should return formatted balance string", () => {  // ← replace description
+        const acc = new Account("Test", "checking", 15000);
+        expect(acc.getBalance()).to.equal("15,000 QAR");   // ← replace method name and expected string
     });
 });
 ```
@@ -1003,27 +1235,35 @@ describe("change to test suite name", () => {
 ### Exercise 3: Testing SavingsAccount (solved)
 
 ```javascript
-describe("change to test suite name", () => {
+// SETUP REQUIRED:
+// - Replace "SavingsAccount" with your test suite name string
+// - Replace SavingsAccount (new SavingsAccount(...)) with your child class name
+// - Replace deposit / applyProfit with your method names
+// - Replace balance / type with your property names
+// - Replace expected values ("savings", 15000, 500, 10500)
+//   Note: applyProfit() returns the PROFIT AMOUNT (not the new balance)
 
-    // TODO: Test that type is "savings"
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Savings Account class name"("Fund", 10000, 0.05);
-        expect("change to instance variable"."change to type property").to.equal("savings");
+describe("SavingsAccount", () => {  // ← replace suite name string
+
+    // Test that type is "savings"
+    it("should have type set to savings", () => {  // ← replace description
+        const acc = new SavingsAccount("Fund", 10000, 0.05); // ← replace class and args
+        expect(acc.type).to.equal("savings");                // ← replace property name
     });
 
-    // TODO: Test inherited deposit
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Savings Account class name"("Fund", 10000, 0.05);
-        "change to instance variable"."change to deposit method"(5000);
-        expect("change to instance variable"."change to balance property").to.equal(15000);
+    // Test inherited deposit
+    it("should inherit deposit from Account", () => {  // ← replace description
+        const acc = new SavingsAccount("Fund", 10000, 0.05);
+        acc.deposit(5000);                                    // ← replace method name (inherited)
+        expect(acc.balance).to.equal(15000);                 // ← replace property and expected
     });
 
-    // TODO: Test applyProfit
-    it("change to test description", () => {
-        const "change to instance variable" = new "change to Savings Account class name"("Fund", 10000, 0.05);
-        const "change to profit variable" = "change to instance variable"."change to apply profit method"();  // returns profit amount
-        expect("change to profit variable").to.equal(500);
-        expect("change to instance variable"."change to balance property").to.equal(10500);
+    // Test applyProfit
+    it("should calculate and add profit correctly", () => {  // ← replace description
+        const acc = new SavingsAccount("Fund", 10000, 0.05);
+        const profit = acc.applyProfit();                     // ← replace method name; returns profit
+        expect(profit).to.equal(500);                        // 10000 * 0.05 = 500
+        expect(acc.balance).to.equal(10500);                 // ← replace property
     });
 });
 ```
@@ -1084,8 +1324,16 @@ expect(arr).to.have.length(3);
 ### Exercise 1: Render Class Instances to DOM Table (solved — Tutorial B01)
 
 ```javascript
-const "change to array name" = [
-    new Transaction("Salary",      12000, "income",  "Salary"),
+// SETUP REQUIRED:
+// - Replace sampleTransactions with your array name
+// - Replace Transaction with your class name (must be already defined/imported)
+// - Replace the constructor arguments to match your class's actual parameters
+// - Replace transactionToRow with your row helper function name
+// - Replace .description / .category with your property names (or .isIncome() / .format() if using class methods)
+// - Replace "#transaction-table" with your actual <tbody> element selector
+
+const sampleTransactions = [            // ← replace array name
+    new Transaction("Salary",      12000, "income",  "Salary"),      // ← replace class and args
     new Transaction("Freelance",    3000, "income",  "Salary"),
     new Transaction("Rent",         4500, "expense", "Housing"),
     new Transaction("Groceries",     850, "expense", "Food"),
@@ -1093,57 +1341,68 @@ const "change to array name" = [
 ];
 
 // Helper: one item → one table row
-function "change to row helper function name"(item) {
+function transactionToRow(item) {       // ← replace function name
     return `
         <tr>
-            <td>${item."change to description property"}</td>
-            <td>${item."change to category property"}</td>
+            <td>${item.description}</td>   <!-- ← replace .description -->
+            <td>${item.category}</td>      <!-- ← replace .category -->
             <td class="${item.isIncome() ? "text-success" : "text-danger"}">${item.format()}</td>
         </tr>
     `;
 }
 
-// TODO: Render "change to array name" into table
-const tableElement = document.querySelector("#change to table body ID");
-tableElement.innerHTML = "change to array name".map(item => "change to row helper function name"(item)).join("");
+// Render sampleTransactions into table
+const tableElement = document.querySelector("#transaction-table"); // ← replace "#transaction-table"
+tableElement.innerHTML = sampleTransactions.map(item => transactionToRow(item)).join("");
 ```
 
 ### Exercise 2: Form Events + Dynamic Rendering
 
 ```javascript
-// TODO: Create "change to live data array name" array
-const "change to live data array name" = [];
+// SETUP REQUIRED:
+// - Replace liveTransactions with your array name (must be let so push works)
+// - Replace updateDashboard with your dashboard function name
+// - Replace renderLiveTransactions with your render function name
+// - Replace transactionToRow with your row helper function name (from Exercise 1)
+// - Replace Transaction with your class name
+// - All HTML element IDs must match your HTML file:
+//   "income-display" → your income display element ID
+//   "expense-display" → your expense element ID
+//   "balance-display" → your balance element ID
+//   "transaction-list" → your container element ID
+//   "transaction-form" → your form element ID
+//   "desc-input" / "amount-input" / "type-select" → your input IDs
+// - Replace .isIncome() / .isExpense() / .amount with your class methods/properties
 
-// TODO: Write "change to update dashboard function name"()
-function "change to update dashboard function name"() {
-    const income   = "change to live data array name".filter(t => t."change to isIncome check method"()).reduce((s, t) => s + t."change to amount property", 0);
-    const expenses = "change to live data array name".filter(t => t."change to isExpense check method"()).reduce((s, t) => s + t."change to amount property", 0);
+let liveTransactions = [];              // ← replace variable name
+
+function updateDashboard() {            // ← replace function name
+    const income   = liveTransactions.filter(t => t.isIncome()).reduce((s, t) => s + t.amount, 0);
+    const expenses = liveTransactions.filter(t => t.isExpense()).reduce((s, t) => s + t.amount, 0);
     const balance  = income - expenses;
 
-    document.getElementById("change to income display ID").textContent  = income.toLocaleString()   + " QAR";
-    document.getElementById("change to expense display ID").textContent = expenses.toLocaleString() + " QAR";
+    document.getElementById("income-display").textContent  = income.toLocaleString()   + " QAR"; // ← replace IDs
+    document.getElementById("expense-display").textContent = expenses.toLocaleString() + " QAR";
 
-    const balanceEl = document.getElementById("change to balance display ID");
+    const balanceEl = document.getElementById("balance-display");  // ← replace ID
     balanceEl.textContent = balance.toLocaleString() + " QAR";
     balanceEl.className   = balance >= 0 ? "text-success" : "text-danger";
 }
 
-// TODO: Write "change to render function name"()
-function "change to render function name"() {
-    document.getElementById("change to list container ID").innerHTML =
-        "change to live data array name".map(t => "change to row helper function name"(t)).join("");
+function renderLiveTransactions() {     // ← replace function name
+    document.getElementById("transaction-list").innerHTML =  // ← replace ID
+        liveTransactions.map(t => transactionToRow(t)).join("");
 }
 
-// TODO: Add submit listener on "change to form ID"
-document.getElementById("change to form ID").addEventListener("submit", (e) => {
+document.getElementById("transaction-form").addEventListener("submit", (e) => { // ← replace ID
     e.preventDefault();
-    const "change to temp description variable" = document.getElementById("change to description input ID").value;
-    const "change to temp amount variable"      = Number(document.getElementById("change to amount input ID").value);
-    const "change to temp type variable"        = document.getElementById("change to type select ID").value;
+    const desc   = document.getElementById("desc-input").value;            // ← replace ID
+    const amount = Number(document.getElementById("amount-input").value);  // ← replace ID
+    const type   = document.getElementById("type-select").value;           // ← replace ID
 
-    "change to live data array name".push(new "change to class name"("change to temp description variable", "change to temp amount variable", "change to temp type variable", "General"));
-    "change to update dashboard function name"();
-    "change to render function name"();
+    liveTransactions.push(new Transaction(desc, amount, type, "General")); // ← replace class name and args
+    updateDashboard();
+    renderLiveTransactions();
     e.target.reset();
 });
 ```
@@ -1151,29 +1410,38 @@ document.getElementById("change to form ID").addEventListener("submit", (e) => {
 ### Exercise 3: localStorage Persistence
 
 ```javascript
-const "change to storage key variable" = "change to storage key value";
+// SETUP REQUIRED:
+// - Replace "module4-transactions" with your localStorage key string
+// - Replace transactions with your array variable name (must be let)
+// - Replace updateDashboard / renderLiveTransactions with your function names
+// - Replace "clear-btn" / "count-btn" with your button IDs
+//   (Lab 6 Module 4: #clear-btn, #count-btn)
+// - Replace "storage-output" with your count display element ID
+//   (Lab 6 Module 4: #storage-output)
 
-// TODO: Load from localStorage on startup
-const saved = localStorage.getItem("change to storage key variable");
-let "change to array name" = saved ? JSON.parse(saved) : [];
-"change to update dashboard function name"();
-"change to render function name"();
+const STORAGE_KEY = "module4-transactions"; // ← replace key string
 
-// TODO: Save to localStorage after each add
-localStorage.setItem("change to storage key variable", JSON.stringify("change to array name"));
+// Load from localStorage on startup
+const saved = localStorage.getItem(STORAGE_KEY);  // ← replace key variable
+let transactions = saved ? JSON.parse(saved) : []; // ← replace array name
+updateDashboard();                                 // ← replace function name
+renderLiveTransactions();                          // ← replace function name
 
-// TODO: Add clear button listener
-document.getElementById("change to clear button ID").addEventListener("click", () => {
-    localStorage.removeItem("change to storage key variable");
-    "change to array name" = [];
-    "change to update dashboard function name"();
-    "change to render function name"();
+// Save to localStorage after each add (call this inside your submit handler)
+localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions)); // ← replace key and array
+
+// Clear button listener
+document.getElementById("clear-btn").addEventListener("click", () => {    // ← replace ID
+    localStorage.removeItem(STORAGE_KEY);
+    transactions = [];
+    updateDashboard();
+    renderLiveTransactions();
 });
 
-// TODO: Add count button listener
-document.getElementById("change to count button ID").addEventListener("click", () => {
-    document.getElementById("change to count display ID").textContent =
-        `${"change to array name"}.length items saved`;
+// Count button listener
+document.getElementById("count-btn").addEventListener("click", () => {    // ← replace ID
+    document.getElementById("storage-output").textContent =              // ← replace ID
+        `${transactions.length} items saved`;
 });
 ```
 
@@ -1336,18 +1604,24 @@ function simulateApiCall(name, ms) {
 ### Exercise 1: Basic async/await
 
 ```javascript
-// TODO: Write async function "change to async function name"()
-async function "change to async function name"() {
+// SETUP REQUIRED:
+// - Replace displayTransactions with your async function name (Lab 7 uses displayTransactions)
+// - Replace data with your result variable name
+// - Replace loadTransactions with the provided helper function name (given in lab, do not rewrite)
+// - Replace .description / .amount with your object property names
+// - Replace " QAR" with your currency string
+
+async function displayTransactions() {   // ← replace function name (Lab 7 uses displayTransactions)
     console.log("Loading...");
-    const "change to data variable" = await "change to promise helper function"(true);  // pauses here
-    "change to data variable".forEach(t => {
-        console.log(`  ${t."change to description property"}: ${t."change to amount property".toLocaleString()} QAR`);
+    const data = await loadTransactions(true);  // ← replace "data" and the helper function name
+    data.forEach(t => {
+        console.log(`  ${t.description}: ${t.amount.toLocaleString()} QAR`); // ← replace properties
     });
-    console.log(`Done! Loaded ${"change to data variable".length} items`);
+    console.log(`Done! Loaded ${data.length} items`);
 }
 
-// TODO: Call "change to async function name"()
-"change to async function name"();  // starts the async work; doesn't block what's below
+// Call the function
+displayTransactions();  // ← replace function name
 console.log("This prints IMMEDIATELY — not blocked");
 ```
 
@@ -1432,38 +1706,47 @@ const formattedText     = await response.json();
 ### Exercise 1: Fetch and Display — solved (Tutorial B01)
 
 ```javascript
-const "change to API URL constant" = "change to API endpoint URL";
+// SETUP REQUIRED:
+// - Replace API_URL with your API constant name and set it to your actual API endpoint
+// - Replace loadBtn / statusText / tableBody with your element variable names
+// - Replace "load-btn" / "status-text" / "transaction-body" with your HTML element IDs
+// - Replace loadTransactions with your fetch function name
+// - Replace transactions with your global array name
+// - Replace transToHTMLRow with your row helper function name
+// - Replace .description / .category / .type / .amount / .id with your API property names
+// - Replace startEdit / deleteTransaction with your onclick function names
 
-// Select elements
-const "change to load button variable"    = document.getElementById("change to load button ID");
-const "change to status text variable"    = document.getElementById("change to status text ID");
-const "change to table body variable"     = document.getElementById("change to table body ID");
+const API_URL = "https://myfinance-api-bay.vercel.app/transactions"; // ← replace URL
 
-"change to load button variable".addEventListener("click", "change to load function name");
+const loadBtn    = document.getElementById("load-btn");           // ← replace var and ID
+const statusText = document.getElementById("status-text");        // ← replace var and ID
+const tableBody  = document.getElementById("transaction-body");   // ← replace var and ID
 
-async function "change to load function name"() {
-    "change to status text variable".textContent = "Loading...";
+loadBtn.addEventListener("click", loadTransactions);              // ← replace function name
+
+async function loadTransactions() {                               // ← replace function name
+    statusText.textContent = "Loading...";
 
     try {
-        const response     = await fetch("change to API URL constant");
+        const response = await fetch(API_URL);                    // ← replace API_URL
         if (!response.ok) throw new Error(`HTTP ${response.status}`);  // always check .ok!
-        "change to array name" = await response.json();
+        transactions = await response.json();                     // ← replace global array name
 
-        "change to table body variable".innerHTML = "change to array name"
-            .map(t => "change to row helper function name"(t))
+        tableBody.innerHTML = transactions
+            .map(t => transToHTMLRow(t))                          // ← replace row help function name
             .join("");
 
-        "change to status text variable".textContent = `Loaded ${"change to array name"}.length items`;
+        statusText.textContent = `Loaded ${transactions.length} items`; // ← replace array name
     } catch (err) {
-        "change to status text variable".textContent = `Error: ${err.message}`;
+        statusText.textContent = `Error: ${err.message}`;
     }
 }
 
-function transToHTMLRow(t) {
-    const amountClass = t.type === "expense" ? "text-danger" : "text-success";
+function transToHTMLRow(t) {                                      // ← replace function name
+    const amountClass = t.type === "expense" ? "text-danger" : "text-success"; // ← replace .type
     return `
         <tr>
-            <td>${t.description}</td>
+            <td>${t.description}</td>     <!-- ← replace property names -->
             <td>${t.category}</td>
             <td>${t.type}</td>
             <td class="${amountClass}">${t.amount.toLocaleString()} QAR</td>
@@ -1580,20 +1863,30 @@ async function addTransaction(e) {
 ### Exercise 2: PUT — Update (Tutorial B01 solved)
 
 ```javascript
-// TODO: Write startEdit(id)
-async function startEdit(id) {
+// SETUP REQUIRED:
+// - Replace "edit-form" with your edit form's HTML ID
+// - Replace "edit-id" / "edit-desc" / "edit-amount" / "edit-type" / "edit-category" with your input IDs
+// - Replace "edit-hint" / "cancel-edit-btn" / "edit-status" with your display element IDs
+// - Replace API_URL with your API constant name
+// - Replace item with your item variable name
+// - Replace .amount with your numeric property name
+// - Replace cancelEdit with your cancel function name
+// - Replace loadTransactions with your fetch/reload function name
+
+// startEdit(id) — fetch item by ID and populate edit form
+async function startEdit(id) {                                    // ← replace function name if needed
     try {
-        const response = await fetch(`${API_URL}/${id}`);
+        const response = await fetch(`${API_URL}/${id}`);         // ← replace API_URL
         const t        = await response.json();
 
         // Populate edit form fields
-        document.querySelector("#edit-id").value       = t.id;
+        document.querySelector("#edit-id").value       = t.id;          // ← replace IDs — must match HTML form
         document.querySelector("#edit-desc").value     = t.description;
         document.querySelector("#edit-amount").value   = t.amount;
         document.querySelector("#edit-type").value     = t.type;
         document.querySelector("#edit-category").value = t.category;
 
-        document.getElementById("edit-hint").style.display       = "none";
+        document.getElementById("edit-hint").style.display       = "none";   // ← replace IDs
         document.getElementById("cancel-edit-btn").style.display = "block";
         document.getElementById("edit-status").textContent =
             `Editing transaction ${id}: ${t.description}`;
@@ -1601,29 +1894,29 @@ async function startEdit(id) {
 }
 
 // Edit form submit — PUT request
-document.getElementById("change to edit form ID").addEventListener("submit", async (e) => {
+document.getElementById("edit-form").addEventListener("submit", async (e) => { // ← replace ID
     e.preventDefault();
-    const id = document.getElementById("change to edit id input ID").value;
+    const id = document.getElementById("edit-id").value;         // ← replace ID
     if (!id) {
-        document.getElementById("change to edit status ID").textContent = "Click Edit on a row first";
+        document.getElementById("edit-status").textContent = "Click Edit on a row first"; // ← replace ID
         return;
     }
 
-    const formData    = new FormData(e.target);
-    const "change to item variable" = Object.fromEntries(formData.entries());
-    "change to item variable"."change to amount property" = parseFloat("change to item variable"."change to amount property");
+    const formData = new FormData(e.target);
+    const item     = Object.fromEntries(formData.entries());      // ← replace "item" variable name
+    item.amount    = parseFloat(item.amount);                     // ← replace .amount with your numeric field
 
     try {
-        const response = await fetch(`${"change to API URL constant"}/${id}`, {
+        const response = await fetch(`${API_URL}/${id}`, {        // ← replace API_URL
             method:  "PUT",
             headers: { "Content-Type": "application/json" },
-            body:    JSON.stringify("change to item variable")
+            body:    JSON.stringify(item)
         });
         if (!response.ok) throw new Error(`Failed to update item ${id}`);
 
-        document.getElementById("change to edit status ID").textContent = `Updated item ${id}`;
-        "change to cancel edit function name"();
-        "change to load function name"();
+        document.getElementById("edit-status").textContent = `Updated item ${id}`; // ← replace ID
+        cancelEdit();                                             // ← replace cancel function name
+        loadTransactions();                                       // ← replace reload function name
     } catch (err) { console.error("Update failed:", err.message); }
 });
 ```
@@ -1631,14 +1924,20 @@ document.getElementById("change to edit form ID").addEventListener("submit", asy
 ### Exercise 3: DELETE — Remove (Tutorial B01 solved)
 
 ```javascript
-// TODO: Write "change to delete function name"(id)
-async function "change to delete function name"(id) {
+// SETUP REQUIRED:
+// - Replace deleteTransaction with your delete function name (Lab 7 uses deleteTransaction)
+// - Replace API_URL with your API constant name
+// - Replace "status-text" with your status element ID
+// - Replace loadTransactions with your reload function name
+// - confirm() shows a browser dialog — if user clicks Cancel, function stops
+
+async function deleteTransaction(id) {                            // ← replace function name
     if (!confirm("Are you sure?")) return;
 
     try {
-        await fetch(`${"change to API URL constant"}/${id}`, { method: "DELETE" });
-        document.getElementById("change to status text ID").textContent = `Deleted item ${id}`;
-        "change to load function name"();
+        await fetch(`${API_URL}/${id}`, { method: "DELETE" });    // ← replace API_URL
+        document.getElementById("status-text").textContent = `Deleted item ${id}`; // ← replace ID
+        loadTransactions();                                       // ← replace reload function name
     } catch (err) { console.error("Delete failed:", err.message); }
 }
 ```
@@ -1652,23 +1951,29 @@ async function "change to delete function name"(id) {
 ### Q2: loadTransactions — Fetch from API (GET)
 
 ```javascript
-const "change to API URL constant" = "https://your-api.vercel.app/transactions";
-let "change to array name" = [];
+// SETUP REQUIRED:
+// - Replace API_URL with your API constant name and set it to your actual API endpoint
+// - Replace transactions with your global array variable name (must be let, declared outside function)
+// - Replace loadTransactions with your load function name (Lab 7 Part B uses loadTransactions)
+// - Replace refreshAll with your refresh function name (called after load)
+// - Replace "status-text" with your status display element ID
 
-// TODO: Write async function "change to load items function name"()
-async function "change to load items function name"() {
+const API_URL = "https://myfinance-api-bay.vercel.app/transactions"; // ← replace URL
+let transactions = [];                                                // ← replace array name
+
+async function loadTransactions() {           // ← replace function name
     try {
-        const response = await fetch("change to API URL constant");
-        const "change to data variable" = await response.json();
+        const response = await fetch(API_URL); // ← replace API_URL
+        const data     = await response.json(); // ← replace "data"
 
         // 1. Store in global array
-        "change to array name" = "change to data variable";
+        transactions = data;                  // ← replace both variable names
 
         // 2. Call refresh function (which calls summary + render)
-        "change to refresh function name"();
+        refreshAll();                         // ← replace refresh function name
 
         // 3. Update status (optional)
-        document.getElementById("change to status text ID").textContent = "Loaded!";
+        document.getElementById("status-text").textContent = "Loaded!"; // ← replace ID
     } catch (err) {
         console.error("Load failed:", err);
     }
@@ -1678,25 +1983,31 @@ async function "change to load items function name"() {
 ### Q3: updateSummary — Calculate totals (filter + reduce)
 
 ```javascript
-// TODO: Write function "change to update summary function name"()
-function "change to update summary function name"() {
-    const totalIncome = "change to array name"
-        .filter(t => t."change to type property" === "income")
-        .reduce((total, t) => total + t."change to amount property", 0);
+// SETUP REQUIRED:
+// - Replace updateSummary with your function name (Lab 7 Part B uses updateSummary)
+// - Replace transactions with your global array name
+// - Replace .type / .amount with your API property names
+// - Replace "total-income" / "total-expenses" / "total-balance" with your element IDs
+// - Replace " QAR" with your currency string
 
-    const totalExpenses = "change to array name"
-        .filter(t => t."change to type property" === "expense")
-        .reduce((total, t) => total + t."change to amount property", 0);
+function updateSummary() {                      // ← replace function name
+    const totalIncome = transactions            // ← replace array name
+        .filter(t => t.type === "income")       // ← replace .type and "income"
+        .reduce((total, t) => total + t.amount, 0); // ← replace .amount
+
+    const totalExpenses = transactions
+        .filter(t => t.type === "expense")
+        .reduce((total, t) => total + t.amount, 0);
 
     const balance = totalIncome - totalExpenses;
 
     // Update displays
-    document.getElementById("change to total income element ID").textContent   = totalIncome.toLocaleString()   + " change to currency unit";
-    document.getElementById("change to total expenses element ID").textContent = totalExpenses.toLocaleString() + " change to currency unit";
-    document.getElementById("change to total balance element ID").textContent  = balance.toLocaleString()       + " change to currency unit";
+    document.getElementById("total-income").textContent   = totalIncome.toLocaleString()   + " QAR"; // ← replace IDs
+    document.getElementById("total-expenses").textContent = totalExpenses.toLocaleString() + " QAR";
+    document.getElementById("total-balance").textContent  = balance.toLocaleString()       + " QAR";
 
     // Color balance sign
-    const balanceEl = document.getElementById("change to total balance element ID");
+    const balanceEl = document.getElementById("total-balance");    // ← replace ID
     balanceEl.classList.remove("text-success", "text-danger");
     balanceEl.classList.add(balance >= 0 ? "text-success" : "text-danger");
 }
@@ -1705,11 +2016,20 @@ function "change to update summary function name"() {
 ### Q4: renderTransactions — Render rows (map + join)
 
 ```javascript
-// TODO: Write function "change to render items function name"()
-function "change to render items function name"() {
-    // ALWAYS call the filter function first if your exam has Q8 search/filter
-    const filtered = "change to get filtered items function name"();
-    const tableBody = document.getElementById("change to table body ID");
+// SETUP REQUIRED:
+// - Replace renderTransactions with your function name (Lab 7 Part B uses renderTransactions)
+// - Replace getFilteredTransactions with your filter function name (Q8 function you write)
+// - Replace "transaction-body" with your <tbody> element ID
+// - Replace .description / .category / .type / .amount / .id with your API property names
+// - Replace startEdit / deleteTransaction with your onclick function names
+// - Replace " QAR" with your currency string
+// - Replace colspan="6" with actual column count of your table
+// - NOTE: If no filter function (Q8 not required), replace getFilteredTransactions() with transactions directly
+
+function renderTransactions() {               // ← replace function name
+    // Call filter function first (Q8)
+    const filtered = getFilteredTransactions(); // ← replace with your filter function name, or just use: transactions
+    const tableBody = document.getElementById("transaction-body"); // ← replace ID
 
     if (filtered.length === 0) {
         tableBody.innerHTML = `<tr><td colspan="6" class="empty-state">No items found</td></tr>`;
@@ -1718,15 +2038,15 @@ function "change to render items function name"() {
 
     tableBody.innerHTML = filtered.map(t => `
         <tr>
-            <td>${t."change to description property"}</td>
-            <td>${t."change to category property"}</td>
-            <td>${t."change to type property"}</td>
-            <td class="${t."change to type property" === 'income' ? 'text-success' : 'text-danger'}">
-                ${t."change to type property" === 'income' ? '+' : '-'}${t."change to amount property".toLocaleString()} "change to currency unit"
+            <td>${t.description}</td>     <!-- ← replace property names -->
+            <td>${t.category}</td>
+            <td>${t.type}</td>
+            <td class="${t.type === 'income' ? 'text-success' : 'text-danger'}">
+                ${t.type === 'income' ? '+' : '-'}${t.amount.toLocaleString()} QAR
             </td>
             <td>
-                <button class="btn btn-sm btn-primary" onclick="change to start edit function name(${t."change to id property"})">Edit</button>
-                <button class="btn btn-sm btn-danger"  onclick="change to delete item function name(${t."change to id property"})">Delete</button>
+                <button class="btn btn-sm btn-primary" onclick="startEdit(${t.id})">Edit</button>
+                <button class="btn btn-sm btn-danger"  onclick="deleteTransaction(${t.id})">Delete</button>
             </td>
         </tr>
     `).join("");
@@ -1736,21 +2056,26 @@ function "change to render items function name"() {
 ### Q5: addTransaction — POST fetch
 
 ```javascript
-// TODO: Write async function "change to add item function name"(data)
-async function "change to add item function name"(data) {
+// SETUP REQUIRED:
+// - Replace addTransaction with your function name (Lab 7 Part B uses addTransaction)
+// - Replace API_URL with your API constant name
+// - Replace transactions with your global array name
+// - Replace refreshAll with your refresh function name
+
+async function addTransaction(data) {         // ← replace function name and keep "data" param
     try {
-        const response = await fetch("change to API URL constant", {
+        const response = await fetch(API_URL, {  // ← replace API_URL
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
-        const created = await response.json();
+        const created = await response.json(); // server returns new item with assigned id
 
         // 1. Add to local array
-        "change to array name".push(created);
+        transactions.push(created);           // ← replace array name
 
         // 2. Refresh page summary/table
-        "change to refresh function name"();
+        refreshAll();                         // ← replace refresh function name
     } catch (error) { console.error("Add error:", error); }
 }
 ```
@@ -1758,10 +2083,16 @@ async function "change to add item function name"(data) {
 ### Q6: updateTransaction — PUT fetch
 
 ```javascript
-// TODO: Write async function "change to update item function name"(id, data)
-async function "change to update item function name"(id, data) {
+// SETUP REQUIRED:
+// - Replace updateTransaction with your function name (Lab 7 Part B uses updateTransaction)
+// - Replace API_URL with your API constant name
+// - Replace transactions with your global array name
+// - Replace .id with your id property name
+// - Replace refreshAll with your refresh function name
+
+async function updateTransaction(id, data) {  // ← replace function name
     try {
-        const response = await fetch(`${"change to API URL constant"}/${id}`, {
+        const response = await fetch(`${API_URL}/${id}`, {  // ← replace API_URL
             method:  "PUT",
             headers: { "Content-Type": "application/json" },
             body:    JSON.stringify(data)
@@ -1769,10 +2100,10 @@ async function "change to update item function name"(id, data) {
         const updated = await response.json();
 
         // Replace in local array (findIndex then swap)
-        const index = "change to array name".findIndex(t => t."change to id property" === id);
-        "change to array name"[index] = updated;
+        const index = transactions.findIndex(t => t.id === id); // ← replace array and .id
+        transactions[index] = updated;        // ← replace array name
 
-        "change to refresh function name"();
+        refreshAll();                         // ← replace refresh function name
     } catch (error) { console.error("Update error:", error); }
 }
 ```
@@ -1780,16 +2111,23 @@ async function "change to update item function name"(id, data) {
 ### Q7: deleteTransaction — DELETE fetch
 
 ```javascript
-// TODO: Write async function "change to delete item function name"(id)
-async function "change to delete item function name"(id) {
+// SETUP REQUIRED:
+// - Replace deleteTransaction with your function name (Lab 7 Part B uses deleteTransaction)
+// - Replace API_URL with your API constant name
+// - Replace transactions with your global array name
+// - Replace .id with your id property name
+// - Replace refreshAll with your refresh function name
+// - confirm() shows a browser dialog — if user clicks Cancel, function stops
+
+async function deleteTransaction(id) {        // ← replace function name
     if (!confirm("Are you sure?")) return;
     try {
-        await fetch(`${"change to API URL constant"}/${id}`, { method: "DELETE" });
+        await fetch(`${API_URL}/${id}`, { method: "DELETE" });  // ← replace API_URL
 
         // Remove from local array
-        "change to array name" = "change to array name".filter(t => t."change to id property" !== id);
+        transactions = transactions.filter(t => t.id !== id);  // ← replace array and .id
 
-        "change to refresh function name"();
+        refreshAll();                         // ← replace refresh function name
     } catch (error) { console.error("Delete error:", error); }
 }
 ```
@@ -1797,27 +2135,40 @@ async function "change to delete item function name"(id) {
 ### refreshAll() — Provided helper
 
 ```javascript
-// Call this after any local data change (add, update, delete, load)
-function "change to refresh function name"() {
-    "change to update summary function name"();
-    "change to render items function name"();
+// SETUP REQUIRED:
+// - Replace refreshAll with your refresh function name
+// - Replace updateSummary with your summary function name
+// - Replace renderTransactions with your render function name
+// Call this after every data change (add, update, delete, load)
+
+function refreshAll() {                       // ← replace function name
+    updateSummary();                          // ← replace function name
+    renderTransactions();                     // ← replace function name
 }
 ```
 
 ### Q8: getFilteredTransactions — Search & Dropdown filter
 
 ```javascript
-// TODO: Write function "change to get filtered items function name"()
-function "change to get filtered items function name"() {
-    const searchTerm = document.getElementById("change to search input ID").value.toLowerCase();
-    const filterType = document.getElementById("change to filter element ID").value;  // "all", "income", "expense"
+// SETUP REQUIRED:
+// - Replace getFilteredTransactions with your filter function name
+// - Replace "search-input" with your search input element ID
+// - Replace "filter-type" with your dropdown filter element ID
+// - Replace transactions with your global array name
+// - Replace .description with the property you want to search
+// - Replace .type with your type property name
+// - The value "all" means no type filter — must match your dropdown's "all" option value
 
-    return "change to array name".filter(t => {
+function getFilteredTransactions() {          // ← replace function name
+    const searchTerm = document.getElementById("search-input").value.toLowerCase(); // ← replace ID
+    const filterType = document.getElementById("filter-type").value;  // "all", "income", "expense" ← replace ID
+
+    return transactions.filter(t => {         // ← replace array name
         // Description search — case-insensitive partial match
-        const matchesSearch = t."change to description property".toLowerCase().includes(searchTerm);
+        const matchesSearch = t.description.toLowerCase().includes(searchTerm); // ← replace .description
 
         // Type filter — "all" means no type restriction
-        const matchesType = filterType === "all" || t."change to type property" === filterType;
+        const matchesType = filterType === "all" || t.type === filterType; // ← replace .type
 
         // BOTH conditions must be true
         return matchesSearch && matchesType;
@@ -1828,48 +2179,61 @@ function "change to get filtered items function name"() {
 ### Q9: startEdit & cancelEdit — Edit Mode toggle
 
 ```javascript
-let "change to editing ID variable" = null;  // null = add, ID = edit
+// SETUP REQUIRED:
+// - Replace editingId with your editing ID variable name (null = add mode, ID = edit mode)
+// - Replace startEdit with your start edit function name (Lab 7 Part B uses startEdit)
+// - Replace cancelEdit with your cancel edit function name
+// - Replace transactions with your global array name
+// - Replace .id with your id property name
+// - Replace all HTML element IDs to match your HTML:
+//   "desc-input" / "amount-input" / "type-select" / "category-select" → your form input IDs
+//   "submit-btn" → your form submit button ID
+//   "cancel-btn" → your cancel button ID
+//   "transaction-form" → your form element ID
+// - Replace addTransaction / updateTransaction with your CRUD function names
 
-async function "change to start edit function name"(id) {
-    const item = "change to array name".find(i => i."change to id property" === id);
+let editingId = null;  // null = add mode, ID = edit mode     // ← replace variable name
+
+async function startEdit(id) {                // ← replace function name
+    const item = transactions.find(i => i.id === id); // ← replace array and .id
     if (!item) return;
 
-    "change to editing ID variable" = id;
+    editingId = id;                           // ← replace variable name
 
     // Populate form inputs
-    document.getElementById("change to description input ID").value = item."change to description property";
-    document.getElementById("change to amount input ID").value      = item."change to amount property";
-    document.getElementById("change to type select ID").value       = item."change to type property";
-    document.getElementById("change to category select ID").value   = item."change to category property";
+    document.getElementById("desc-input").value      = item.description; // ← replace IDs and properties
+    document.getElementById("amount-input").value    = item.amount;
+    document.getElementById("type-select").value     = item.type;
+    document.getElementById("category-select").value = item.category;
 
     // Update UI text (optional)
-    document.getElementById("change to submit button ID").textContent = "Update Item";
-    const cancelBtn = document.getElementById("change to cancel button ID");
+    document.getElementById("submit-btn").textContent = "Update Item";  // ← replace ID
+    const cancelBtn = document.getElementById("cancel-btn");            // ← replace ID
     if (cancelBtn) cancelBtn.classList.remove("hidden");
 }
 
-function "change to cancel edit function name"() {
-    "change to editing ID variable" = null;
-    document.getElementById("change to form ID").reset();
+function cancelEdit() {                       // ← replace function name
+    editingId = null;                         // ← replace variable name
+    document.getElementById("transaction-form").reset(); // ← replace ID
 
     // Reset UI text
-    document.getElementById("change to submit button ID").textContent = "Add Item";
-    const cancelBtn = document.getElementById("change to cancel button ID");
+    document.getElementById("submit-btn").textContent = "Add Item";  // ← replace ID
+    const cancelBtn = document.getElementById("cancel-btn");          // ← replace ID
     if (cancelBtn) cancelBtn.classList.add("hidden");
 }
 
 /* Handle Form Submit (Add or Update Branch) */
-document.getElementById("change to form ID").addEventListener("submit", async (e) => {
+document.getElementById("transaction-form").addEventListener("submit", async (e) => { // ← replace ID
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    data.amount = Number(data.amount); // VERY IMPORTANT
+    data.amount = Number(data.amount); // VERY IMPORTANT — converts string to number
 
-    if ("change to editing ID variable") {
-        await "change to update item function name"("change to editing ID variable", data);
-        "change to cancel edit function name"();
+    if (editingId) {                          // ← replace variable name
+        await updateTransaction(editingId, data); // ← replace function names and variable
+        cancelEdit();                         // ← replace function name
     } else {
-        await "change to add item function name"(data);
+        await addTransaction(data);           // ← replace function name
         e.target.reset();
     }
 });
@@ -1878,8 +2242,11 @@ document.getElementById("change to form ID").addEventListener("submit", async (e
 ### Initialization
 
 ```javascript
-// Start the app when page opens
-"change to load items function name"();
+// SETUP REQUIRED:
+// - Replace loadTransactions with your load function name
+// Call this once at the bottom of your script to initialize the app
+
+loadTransactions();  // ← replace function name
 ```
 
 ---
@@ -1893,29 +2260,37 @@ document.getElementById("change to form ID").addEventListener("submit", async (e
 Instead of linking to different HTML files (which reloads the page), a Single Page App fetches HTML *fragments* and injects them into a `<main>` container.
 
 ```javascript
-// TODO 5: "change to load page function name"(page)
-async function "change to load page function name"(page) {
+// SETUP REQUIRED:
+// - Replace loadPage with your function name (Assignment 2 uses loadPage)
+// - Replace "pages" with your pages directory name (Assignment 2 uses "pages")
+// - Replace "#main-content" with your main container element selector
+// - Replace ".nav-link" with your nav link CSS class
+// - Replace "home" / "recipes" / etc. with your actual page names (matching .html files in your pages folder)
+// - Replace loadRecipes / setupAddForm with your page-specific initialization functions
+// - Replace "form#add-recipe-form" with your form selector on the relevant page
+
+async function loadPage(page) {               // ← replace function name
     // 1. Fetch the HTML fragment
-    const response = await fetch(`"change to pages directory name"/${page}.html`);
+    const response = await fetch(`pages/${page}.html`); // ← replace "pages"
     const content  = await response.text();
 
     // 2. Inject into main container
-    document.querySelector("#change to main container ID").innerHTML = content;
+    document.querySelector("#main-content").innerHTML = content; // ← replace "#main-content"
 
     // 3. Update active nav link
-    document.querySelectorAll(".change to nav link class").forEach(link => {
+    document.querySelectorAll(".nav-link").forEach(link => { // ← replace ".nav-link"
         link.classList.remove("active");
     });
-    const selector = `.change to nav link class[onclick*="'${page}'"]`;
+    const selector = `.nav-link[onclick*="'${page}'"]`;      // ← replace ".nav-link"
     document.querySelector(selector)?.classList.add("active");
 
     // 4. Wire up page-specific handlers AFTER injection
-    if (page === "change to page name A") {
-        "change to load items function name A"();
+    if (page === "home") {                    // ← replace "home" with your home page name
+        loadRecipes();                        // ← replace with your home page init function
     }
-    if (page === "change to page name B") {
-        const form = document.querySelector("change to form selector");
-        if (form) form.addEventListener("submit", "change to handle form submit function name");
+    if (page === "add") {                     // ← replace "add" with your add page name
+        const form = document.querySelector("form#add-recipe-form"); // ← replace selector
+        if (form) form.addEventListener("submit", handleAddFormSubmit); // ← replace handler name
     }
 }
 ```
