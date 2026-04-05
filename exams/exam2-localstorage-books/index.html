@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>📚 Book Collection Manager</h1>
+            <p>Manage your personal book library with persistent storage</p>
+        </header>
+
+        <main>
+            <!--
+                ====================================================
+                EXAM 2: localStorage — Book Collection Manager
+                Total: 100 marks | Time: 60 minutes
+                ====================================================
+
+                INSTRUCTIONS:
+                - Write ALL your JavaScript in js/app.js
+                - Use localStorage to persist data across page refreshes
+                - Fix one CSS rule as indicated in Q1
+                - Open this file with Live Server to test
+
+                API URL: https://freetestapi.com/api/v1/books
+
+                BOOK DATA SHAPE (from API):
+                {
+                    "id": 1,
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publication_year": 1960,
+                    "genre": ["Fiction", "Classic"],
+                    "description": "...",
+                    "cover_image": "https://..."
+                }
+            -->
+
+            <!-- Sort & Filter -->
+            <section>
+                <h2>Browse Collection</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="search">Search by Title</label>
+                        <input type="text" id="search" placeholder="Search books...">
+                    </div>
+                    <div class="form-group">
+                        <label for="sort-options">Sort By</label>
+                        <select id="sort-options">
+                            <option value="all">Default</option>
+                            <option value="title">Title (A-Z)</option>
+                            <option value="year">Year (Oldest First)</option>
+                            <option value="year-desc">Year (Newest First)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Book Grid -->
+            <section>
+                <!-- Q4: renderBooks() outputs cards here -->
+                <div id="book-grid" class="grid-container">
+                    <p class="empty-message">Loading books...</p>
+                </div>
+            </section>
+
+            <!-- Details View (hidden by default) -->
+            <section id="details-container" style="display: none;">
+                <!-- Q6: showDetails() outputs detailed view here -->
+            </section>
+
+            <!-- Reading List -->
+            <section>
+                <h2>📖 My Reading List</h2>
+                <div class="btn-group" style="margin-bottom: 16px;">
+                    <button id="clear-list-btn" class="btn btn-danger btn-sm">Clear Reading List</button>
+                    <span id="list-count" class="text-muted"></span>
+                </div>
+                <!-- Q7: Favorites rendering goes here -->
+                <div id="reading-list" class="grid-container">
+                    <p class="empty-message">No books in your reading list yet</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Book Collection Manager. Exam 2 — localStorage.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

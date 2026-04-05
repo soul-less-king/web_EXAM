@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Analyzer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Student Grade Analyzer</h1>
+            <p>Analyze student performance using JavaScript array methods</p>
+        </header>
+
+        <main>
+            <!--
+                ====================================================
+                EXAM 1: Array Methods & Array Manipulation
+                Total: 100 marks | Time: 60 minutes
+                ====================================================
+
+                INSTRUCTIONS:
+                - Write ALL your JavaScript in js/app.js
+                - A hardcoded array of student objects is provided below for reference
+                - You must NOT use localStorage — only a global array
+                - Fix one CSS rule as indicated in Q1
+                - Open this file with Live Server to test
+
+                STUDENT DATA SHAPE (use this in your JS file):
+                {
+                    id: 1,
+                    name: "Sara Al-Mahmoud",
+                    course: "Web Development",
+                    grade: 88,
+                    status: "pass",
+                    semester: "Fall 2025"
+                }
+
+                status is "pass" or "fail"
+            -->
+
+            <!-- Summary Cards -->
+            <section id="overview">
+                <h2>Class Overview</h2>
+                <!-- Q1 (CSS): Fix .dashboard-grid so these cards display in a responsive grid -->
+                <div class="dashboard-grid">
+                    <article class="card card--success">
+                        <h3>Total Students</h3>
+                        <p class="amount" id="total-students">0</p>
+                    </article>
+                    <article class="card card--primary">
+                        <h3>Class Average</h3>
+                        <p class="amount" id="class-average">0%</p>
+                    </article>
+                    <article class="card card--danger">
+                        <h3>Failing Students</h3>
+                        <p class="amount" id="total-failing">0</p>
+                    </article>
+                    <article class="card card--warning">
+                        <h3>Highest Grade</h3>
+                        <p class="amount" id="highest-grade">0%</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Filter Controls -->
+            <section>
+                <h2>Student Records</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="search">Search by Name</label>
+                        <input type="text" id="search" placeholder="Search students...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-status">Filter by Status</label>
+                        <select id="filter-status">
+                            <option value="all">All Students</option>
+                            <option value="pass">Passing Only</option>
+                            <option value="fail">Failing Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sort-by">Sort By</label>
+                        <select id="sort-by">
+                            <option value="name">Name (A-Z)</option>
+                            <option value="grade-high">Grade (High → Low)</option>
+                            <option value="grade-low">Grade (Low → High)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Student Table -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Semester</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-body">
+                            <tr>
+                                <td colspan="5" class="empty-message">Loading students...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Course Summary -->
+            <section>
+                <h2>Course Summary</h2>
+                <!-- Q7: renderCourseSummary() outputs cards here -->
+                <div id="course-summary" class="dashboard-grid">
+                    <p class="empty-message">No summary yet</p>
+                </div>
+            </section>
+
+            <!-- Top Performers -->
+            <section>
+                <h2>Top 3 Performers</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-performers">
+                            <tr>
+                                <td colspan="4" class="empty-message">No data yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Student Grade Analyzer. Exam 1 — Array Methods.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

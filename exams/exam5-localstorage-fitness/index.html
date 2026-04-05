@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLog Workout Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>💪 FitLog Workout Tracker</h1>
+            <p>Log workouts, track progress, and stay consistent</p>
+        </header>
+
+        <main>
+            <!--
+                ====================================================
+                EXAM 5: localStorage — FitLog Workout Tracker
+                Total: 100 marks | Time: 60 minutes
+                ====================================================
+
+                INSTRUCTIONS:
+                - Write ALL your JavaScript in js/app.js
+                - Use localStorage to persist all workout data
+                - No API is used — all data is local
+                - Fix one CSS rule as indicated in Q1
+                - Open with Live Server to test
+
+                WORKOUT DATA SHAPE (you build these from the form):
+                {
+                    id: Date.now(),
+                    exercise: "Running",
+                    duration: 30,
+                    calories: 350,
+                    type: "cardio",
+                    date: "2026-04-05",
+                    notes: "Morning run in the park"
+                }
+
+                type is one of: "cardio", "strength", "flexibility"
+            -->
+
+            <!-- Summary Cards -->
+            <section>
+                <h2>Weekly Stats</h2>
+                <div class="dashboard-grid">
+                    <article class="card card--primary">
+                        <h3>Total Workouts</h3>
+                        <p class="amount" id="total-workouts">0</p>
+                    </article>
+                    <article class="card card--success">
+                        <h3>Total Duration</h3>
+                        <p class="amount" id="total-duration">0 min</p>
+                    </article>
+                    <article class="card card--danger">
+                        <h3>Calories Burned</h3>
+                        <p class="amount" id="total-calories">0 kcal</p>
+                    </article>
+                    <article class="card card--warning">
+                        <h3>Avg Duration</h3>
+                        <p class="amount" id="avg-duration">0 min</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Add / Edit Workout Form -->
+            <section>
+                <h2 id="form-title">Log New Workout</h2>
+                <form id="workout-form">
+                    <input type="hidden" id="edit-id" value="">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="exercise">Exercise Name</label>
+                            <input type="text" id="exercise" name="exercise" placeholder="e.g., Running, Push-ups" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="workout-type">Type</label>
+                            <select id="workout-type" name="type" required>
+                                <option value="cardio">Cardio</option>
+                                <option value="strength">Strength</option>
+                                <option value="flexibility">Flexibility</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="duration">Duration (min)</label>
+                            <input type="number" id="duration" name="duration" min="1" placeholder="30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="calories">Calories Burned</label>
+                            <input type="number" id="calories" name="calories" min="0" placeholder="250" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="workout-date">Date</label>
+                            <input type="date" id="workout-date" name="date" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="notes">Notes (optional)</label>
+                        <input type="text" id="notes" name="notes" placeholder="How did it feel?">
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">Log Workout</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+                        <button type="button" id="clear-all-btn" class="btn btn-danger btn-sm">Clear All Data</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Filter & Search -->
+            <section>
+                <h2>Workout History</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="search">Search</label>
+                        <input type="text" id="search" placeholder="Search by exercise name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-type">Filter by Type</label>
+                        <select id="filter-type">
+                            <option value="all">All Types</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="strength">Strength</option>
+                            <option value="flexibility">Flexibility</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sort-by">Sort By</label>
+                        <select id="sort-by">
+                            <option value="date-new">Date (Newest First)</option>
+                            <option value="date-old">Date (Oldest First)</option>
+                            <option value="duration">Duration (Longest)</option>
+                            <option value="calories">Calories (Highest)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Workout Table -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Type</th>
+                                <th>Duration</th>
+                                <th>Calories</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="workout-body">
+                            <tr>
+                                <td colspan="6" class="empty-message">No workouts logged yet. Start logging!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Type Breakdown -->
+            <section>
+                <h2>Breakdown by Type</h2>
+                <div id="type-summary" class="dashboard-grid">
+                    <p class="empty-message">No data yet</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 FitLog. Exam 5 — localStorage.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Favorites Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>🍳 Recipe Favorites Tracker</h1>
+            <p>Discover recipes, save favorites, and add your own creations</p>
+        </header>
+
+        <main>
+            <!--
+                ====================================================
+                EXAM 3: localStorage — Recipe Favorites Tracker
+                Total: 100 marks | Time: 60 minutes
+                ====================================================
+
+                INSTRUCTIONS:
+                - Write ALL your JavaScript in js/app.js
+                - Use localStorage to persist data
+                - Fix one CSS issue as indicated in Q1
+                - Open with Live Server to test
+
+                API URL: https://freetestapi.com/api/v1/recipes
+
+                RECIPE SHAPE (from API):
+                {
+                    "id": 1,
+                    "name": "Spaghetti Carbonara",
+                    "ingredients": ["spaghetti", "eggs", "bacon", ...],
+                    "instructions": ["Boil pasta...", "Fry bacon...", ...],
+                    "prepTimeMinutes": 15,
+                    "cookTimeMinutes": 20,
+                    "servings": 4,
+                    "difficulty": "Medium",
+                    "cuisine": "Italian",
+                    "image": "https://..."
+                }
+            -->
+
+            <!-- Summary Cards -->
+            <section>
+                <h2>Collection Stats</h2>
+                <div class="dashboard-grid">
+                    <article class="card card--primary">
+                        <h3>Total Recipes</h3>
+                        <p class="amount" id="total-recipes">0</p>
+                    </article>
+                    <article class="card card--success">
+                        <h3>Favorites Saved</h3>
+                        <p class="amount" id="total-favorites">0</p>
+                    </article>
+                    <article class="card card--warning">
+                        <h3>Avg Prep Time</h3>
+                        <p class="amount" id="avg-prep-time">0 min</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Filter Controls -->
+            <section>
+                <h2>Browse Recipes</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="search">Search by Name</label>
+                        <input type="text" id="search" placeholder="Search recipes...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-difficulty">Filter by Difficulty</label>
+                        <select id="filter-difficulty">
+                            <option value="all">All Difficulties</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sort-options">Sort By</label>
+                        <select id="sort-options">
+                            <option value="all">Default</option>
+                            <option value="name">Name (A-Z)</option>
+                            <option value="prep">Prep Time (Quick First)</option>
+                            <option value="servings">Servings (Most First)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recipe Grid -->
+            <section>
+                <div id="recipe-grid" class="grid-container">
+                    <p class="empty-message">Loading recipes...</p>
+                </div>
+            </section>
+
+            <!-- Details View (hidden by default) -->
+            <section id="details-container" style="display: none;"></section>
+
+            <!-- Add Custom Recipe Form -->
+            <section>
+                <h2>Add Your Own Recipe</h2>
+                <form id="recipe-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipe-name">Recipe Name</label>
+                            <input type="text" id="recipe-name" name="name" placeholder="e.g., Chicken Biryani" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-cuisine">Cuisine</label>
+                            <input type="text" id="recipe-cuisine" name="cuisine" placeholder="e.g., Indian" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipe-prep">Prep Time (min)</label>
+                            <input type="number" id="recipe-prep" name="prepTimeMinutes" min="1" placeholder="15" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-cook">Cook Time (min)</label>
+                            <input type="number" id="recipe-cook" name="cookTimeMinutes" min="1" placeholder="30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-servings">Servings</label>
+                            <input type="number" id="recipe-servings" name="servings" min="1" placeholder="4" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-difficulty">Difficulty</label>
+                            <select id="recipe-difficulty" name="difficulty" required>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">Add Recipe</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Favorites Section -->
+            <section>
+                <h2>❤️ My Favorites</h2>
+                <div class="btn-group" style="margin-bottom: 16px;">
+                    <button id="clear-favorites-btn" class="btn btn-danger btn-sm">Clear All Favorites</button>
+                </div>
+                <div id="favorites-grid" class="grid-container">
+                    <p class="empty-message">No favorites saved yet</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Recipe Favorites Tracker. Exam 3 — localStorage.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
